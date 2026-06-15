@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 600" font-family="Inter, system-ui, sans-serif" role="img" aria-label="The zero-to-one journey over two days">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#faf7f1"/>
+      <stop offset="1" stop-color="#f4efe5"/>
+    </linearGradient>
+    <linearGradient id="arc" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#bd7222"/>
+      <stop offset="1" stop-color="#e3a247"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="880" height="600" rx="20" fill="url(#bg)"/>
+
+  <!-- header -->
+  <text x="48" y="64" font-size="15" letter-spacing="3" font-weight="700" fill="#9c551f">THE TWO-DAY JOURNEY</text>
+  <text x="48" y="104" font-family="Georgia, serif" font-size="34" font-weight="700" fill="#0f1b2d">From zero to one with AI</text>
+
+  <!-- rising arc -->
+  <path d="M90 470 C 280 470, 360 240, 560 200 S 770 130, 810 120" fill="none" stroke="url(#arc)" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 14" stroke-dashoffset="0"/>
+  <path d="M90 470 C 280 470, 360 240, 560 200 S 770 130, 810 120" fill="none" stroke="url(#arc)" stroke-width="5" stroke-linecap="round" opacity="0.25"/>
+
+  <!-- Day badges -->
+  <g>
+    <rect x="120" y="150" width="120" height="30" rx="15" fill="#0f1b2d"/>
+    <text x="180" y="170" text-anchor="middle" font-size="14" font-weight="700" fill="#e3a247">DAY 1</text>
+    <rect x="540" y="150" width="120" height="30" rx="15" fill="#0f1b2d"/>
+    <text x="600" y="170" text-anchor="middle" font-size="14" font-weight="700" fill="#e3a247">DAY 2</text>
+  </g>
+
+  <!-- milestone 1 -->
+  <g>
+    <circle cx="110" cy="468" r="14" fill="#0f1b2d"/>
+    <text x="110" y="473" text-anchor="middle" font-size="13" font-weight="700" fill="#faf7f1">0</text>
+    <text x="110" y="512" text-anchor="middle" font-family="Georgia, serif" font-size="18" font-weight="700" fill="#0f1b2d">Start</text>
+    <text x="110" y="536" text-anchor="middle" font-size="13" fill="#456089">Never used AI</text>
+  </g>
+
+  <!-- milestone 2 -->
+  <g>
+    <circle cx="300" cy="392" r="13" fill="#d99232"/>
+    <text x="300" y="356" text-anchor="middle" font-family="Georgia, serif" font-size="17" font-weight="700" fill="#0f1b2d">Set up</text>
+    <text x="300" y="378" text-anchor="middle" font-size="12.5" fill="#456089">Tools installed</text>
+  </g>
+
+  <!-- milestone 3 -->
+  <g>
+    <circle cx="470" cy="262" r="13" fill="#d99232"/>
+    <text x="470" y="226" text-anchor="middle" font-family="Georgia, serif" font-size="17" font-weight="700" fill="#0f1b2d">Fluent</text>
+    <text x="470" y="248" text-anchor="middle" font-size="12.5" fill="#456089">Real prompting</text>
+  </g>
+
+  <!-- milestone 4 -->
+  <g>
+    <circle cx="640" cy="186" r="13" fill="#d99232"/>
+    <text x="640" y="150" text-anchor="middle" font-family="Georgia, serif" font-size="17" font-weight="700" fill="#0f1b2d">Build</text>
+    <text x="640" y="172" text-anchor="middle" font-size="12.5" fill="#456089">Vibe coding</text>
+  </g>
+
+  <!-- milestone 5 (the one) -->
+  <g>
+    <circle cx="810" cy="120" r="20" fill="#0f1b2d"/>
+    <circle cx="810" cy="120" r="9" fill="#e3a247"/>
+    <text x="810" y="172" text-anchor="middle" font-family="Georgia, serif" font-size="20" font-weight="700" fill="#0f1b2d">One</text>
+    <text x="810" y="196" text-anchor="middle" font-size="13" fill="#9c551f" font-weight="600">You shipped it</text>
+  </g>
+</svg>

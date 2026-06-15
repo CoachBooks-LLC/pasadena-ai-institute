@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pasadena AI Institute — Flyer (Letter, portrait)</title>
+<!--
+  HOW TO USE: Open this file in Chrome → Print → Destination "Save as PDF"
+  → Paper "Letter" → Margins "None" → Background graphics ON.
+  Pin it on bulletin boards: coffee shops, coworking spaces, libraries,
+  the Chamber of Commerce, community centers around Pasadena.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#0f1b2d; --ink700:#2a3c59; --ink500:#456089;
+    --amber:#d99232; --amber400:#e3a247; --amber700:#9c551f;
+    --canvas:#faf7f1; --soft:#f4efe5;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  @page{ size: Letter portrait; margin:0; }
+  html,body{ background:#e9e4d8; font-family:Inter,system-ui,sans-serif; color:var(--ink); }
+  .sheet{
+    width:8.5in; height:11in; margin:0 auto; background:var(--canvas);
+    position:relative; overflow:hidden; display:flex; flex-direction:column;
+  }
+  h1,h2,h3{ font-family:Fraunces,Georgia,serif; line-height:1.05; }
+  .pad{ padding:0.7in 0.7in; }
+
+  /* header */
+  .top{ background:var(--ink); color:var(--canvas); padding:0.55in 0.7in 0.5in; position:relative; }
+  .brand{ display:flex; align-items:center; gap:12px; }
+  .brand .name{ font-family:Fraunces,serif; font-weight:700; font-size:20px; }
+  .brand .ai{ color:var(--amber400); }
+  .brand .host{ font-size:10px; letter-spacing:2px; text-transform:uppercase; color:#9aabc4; margin-top:2px;}
+  .badge{ display:inline-block; margin-top:18px; border:1px solid var(--amber); color:var(--amber400);
+    border-radius:999px; padding:6px 14px; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase;}
+
+  .hero h1{ font-size:52px; margin-top:8px; }
+  .hero h1 .accent{ color:var(--amber); }
+  .lead{ font-size:17px; color:var(--ink500); line-height:1.5; margin-top:14px; max-width:6.2in; }
+
+  .tracks{ display:flex; gap:14px; margin-top:26px; }
+  .track{ flex:1; border:1px solid #e4d8c2; border-radius:14px; padding:16px 18px; background:#fff; }
+  .track .k{ font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--amber700); font-weight:700; }
+  .track h3{ font-size:19px; margin-top:6px; }
+  .track p{ font-size:12.5px; color:var(--ink500); margin-top:6px; line-height:1.45; }
+
+  .you{ margin-top:26px; }
+  .you .k{ font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--amber700); font-weight:700; }
+  .ul{ margin-top:12px; display:grid; grid-template-columns:1fr 1fr; gap:10px 22px; }
+  .ul li{ list-style:none; font-size:13.5px; color:var(--ink700); display:flex; gap:8px; align-items:flex-start; }
+  .dot{ color:var(--amber); font-weight:800; }
+
+  .foot{ margin-top:auto; background:var(--soft); border-top:1px solid #e4d8c2; }
+  .foot-in{ display:flex; align-items:center; justify-content:space-between; padding:0.42in 0.7in; }
+  .price .big{ font-family:Fraunces,serif; font-size:40px; font-weight:700; }
+  .price .sm{ font-size:12px; color:var(--ink500); }
+  .cta{ text-align:right; }
+  .cta .web{ font-family:Fraunces,serif; font-size:20px; font-weight:700; }
+  .cta .sub{ font-size:12px; color:var(--ink500); margin-top:4px; }
+  .pill{ display:inline-block; background:var(--amber); color:var(--ink); font-weight:700; font-size:13px;
+    padding:9px 16px; border-radius:999px; margin-top:8px;}
+  .mtn{ position:absolute; right:-30px; top:0; width:220px; opacity:.12; }
+</style>
+</head>
+<body>
+  <div class="sheet">
+    <div class="top">
+      <div class="brand">
+        <svg width="40" height="40" viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#1b2840"/><path d="M6 29 L15 17 L21 24 L27 14 L34 29 Z" fill="#2a3c59"/><path d="M7 30 C 15 14, 25 14, 33 9" stroke="#d99232" stroke-width="2.5" stroke-linecap="round" fill="none"/><circle cx="33" cy="9" r="3" fill="#e3a247"/></svg>
+        <div>
+          <div class="name">Pasadena <span class="ai">AI</span> Institute</div>
+          <div class="host">Hosted by Whistle Labs</div>
+        </div>
+      </div>
+      <span class="badge">Founding Cohort · Fall 2026 · Pasadena</span>
+    </div>
+
+    <div class="pad hero">
+      <h1>Go from <span class="accent">zero to one</span> with AI — in two days.</h1>
+      <p class="lead">A hands-on, in-person AI conference in Pasadena for professionals, owners, and executives. No experience required. Come learn — or bring an idea and build it.</p>
+
+      <div class="tracks">
+        <div class="track">
+          <div class="k">Track 1</div>
+          <h3>Zero Experience</h3>
+          <p>Never used AI? We start at zero and make you confident and fluent.</p>
+        </div>
+        <div class="track">
+          <div class="k">Track 2</div>
+          <h3>I Have an Idea</h3>
+          <p>Bring your idea. We set up your tools and get you building it for real.</p>
+        </div>
+      </div>
+
+      <div class="you">
+        <div class="k">You'll leave with</div>
+        <ul class="ul">
+          <li><span class="dot">→</span> AI tools set up on your own laptop</li>
+          <li><span class="dot">→</span> A workflow or prototype you built</li>
+          <li><span class="dot">→</span> Real skills you'll use the next Monday</li>
+          <li><span class="dot">→</span> A local Pasadena AI community</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot">
+      <div class="foot-in">
+        <div class="price">
+          <div class="big">$995</div>
+          <div class="sm">All-inclusive · lunches &amp; software setup included · just 24 seats</div>
+        </div>
+        <div class="cta">
+          <div class="web">pasadenaaiinstitute.com</div>
+          <div class="sub">Reserve your seat or apply for a quick call</div>
+          <span class="pill">Reserve your seat →</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

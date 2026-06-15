@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 600" font-family="Inter, system-ui, sans-serif" role="img" aria-label="Two-day agenda overview">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#faf7f1"/>
+      <stop offset="1" stop-color="#f4efe5"/>
+    </linearGradient>
+  </defs>
+  <rect width="880" height="600" rx="20" fill="url(#bg3)"/>
+
+  <text x="48" y="60" font-size="15" letter-spacing="3" font-weight="700" fill="#9c551f">THE TWO DAYS</text>
+  <text x="48" y="98" font-family="Georgia, serif" font-size="30" font-weight="700" fill="#0f1b2d">A clear hour-by-hour path</text>
+
+  <!-- Day 1 column -->
+  <g>
+    <rect x="48" y="130" width="384" height="430" rx="16" fill="#ffffff" stroke="#e4e9f0"/>
+    <text x="72" y="172" font-family="Georgia, serif" font-size="22" font-weight="700" fill="#0f1b2d">Day 1</text>
+    <text x="72" y="196" font-size="13" fill="#9c551f" font-weight="600">Foundations &amp; Fluency</text>
+    <line x1="72" y1="212" x2="408" y2="212" stroke="#e4e9f0"/>
+
+    <g font-size="14">
+      <text x="72" y="248" font-weight="700" fill="#d99232">9:00</text><text x="132" y="248" fill="#2a3c59">The real state of AI</text>
+      <text x="72" y="288" font-weight="700" fill="#d99232">9:45</text><text x="132" y="288" fill="#2a3c59">Get set up &amp; installed</text>
+      <text x="72" y="328" font-weight="700" fill="#d99232">11:00</text><text x="132" y="328" fill="#2a3c59">Prompting that works</text>
+      <text x="72" y="368" font-weight="700" fill="#456089">12:30</text><text x="132" y="368" fill="#677fa3">Working lunch</text>
+      <text x="72" y="408" font-weight="700" fill="#d99232">1:30</text><text x="132" y="408" fill="#2a3c59">AI for your daily work</text>
+      <text x="72" y="448" font-weight="700" fill="#d99232">3:00</text><text x="132" y="448" fill="#2a3c59">Meet AI agents</text>
+      <text x="72" y="488" font-weight="700" fill="#d99232">4:30</text><text x="132" y="488" fill="#2a3c59">Track split &amp; prep</text>
+    </g>
+  </g>
+
+  <!-- Day 2 column -->
+  <g>
+    <rect x="448" y="130" width="384" height="430" rx="16" fill="#0f1b2d"/>
+    <text x="472" y="172" font-family="Georgia, serif" font-size="22" font-weight="700" fill="#faf7f1">Day 2</text>
+    <text x="472" y="196" font-size="13" fill="#e3a247" font-weight="600">Zero to One — build it</text>
+    <line x1="472" y1="212" x2="808" y2="212" stroke="#2a3c59"/>
+
+    <g font-size="14">
+      <text x="472" y="248" font-weight="700" fill="#e3a247">9:00</text><text x="532" y="248" fill="#e4e9f0">Your project, scoped</text>
+      <text x="472" y="288" font-weight="700" fill="#e3a247">9:45</text><text x="532" y="288" fill="#e4e9f0">Set up to build</text>
+      <text x="472" y="328" font-weight="700" fill="#e3a247">11:00</text><text x="532" y="328" fill="#e4e9f0">Vibe coding, hands-on</text>
+      <text x="472" y="368" font-weight="700" fill="#9aabc4">12:30</text><text x="532" y="368" fill="#9aabc4">Working lunch</text>
+      <text x="472" y="408" font-weight="700" fill="#e3a247">1:30</text><text x="532" y="408" fill="#e4e9f0">Custom workflows &amp; agents</text>
+      <text x="472" y="448" font-weight="700" fill="#e3a247">3:00</text><text x="532" y="448" fill="#e4e9f0">Build time, experts on call</text>
+      <text x="472" y="488" font-weight="700" fill="#e3a247">4:30</text><text x="532" y="488" fill="#e4e9f0">Showcase &amp; next steps</text>
+    </g>
+  </g>
+</svg>

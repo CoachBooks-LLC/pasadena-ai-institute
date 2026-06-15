@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pasadena AI Institute — One-Pager / Sell Sheet</title>
+<!--
+  HOW TO USE: A leave-behind / sell sheet to hand a business owner after a
+  meeting, or attach as a PDF. Open in Chrome → Print → Save as PDF →
+  Letter → Margins None → Background graphics ON.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{ --ink:#0f1b2d; --ink700:#2a3c59; --ink500:#456089; --amber:#d99232; --amber400:#e3a247; --amber700:#9c551f; --canvas:#faf7f1; --soft:#f4efe5; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  @page{ size: Letter portrait; margin:0; }
+  html,body{ background:#e9e4d8; font-family:Inter,system-ui,sans-serif; color:var(--ink); }
+  .sheet{ width:8.5in; height:11in; margin:0 auto; background:var(--canvas); position:relative; overflow:hidden; }
+  h1,h2,h3{ font-family:Fraunces,Georgia,serif; line-height:1.08; }
+  .pad{ padding:0.46in 0.6in; }
+
+  .hd{ display:flex; align-items:center; justify-content:space-between; border-bottom:2px solid var(--ink); padding:0.42in 0.6in 0.26in; }
+  .brand{ display:flex; align-items:center; gap:11px; }
+  .brand .name{ font-family:Fraunces,serif; font-weight:700; font-size:18px; }
+  .brand .ai{ color:var(--amber700); }
+  .brand .host{ font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--ink500); margin-top:2px;}
+  .hd .tag{ text-align:right; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--amber700); font-weight:700;}
+
+  .h1{ font-size:33px; margin-bottom:6px;}
+  .h1 .a{ color:var(--amber);}
+  .sub{ font-size:14px; color:var(--ink500); line-height:1.5; max-width:6.4in;}
+
+  .grid2{ display:flex; gap:16px; margin-top:20px; }
+  .col{ flex:1; }
+  .box{ background:#fff; border:1px solid #e8ddc7; border-radius:13px; padding:15px 17px; }
+  .box.dark{ background:var(--ink); color:#e4e9f0; border-color:var(--ink); }
+  .box .k{ font-size:9.5px; letter-spacing:2px; text-transform:uppercase; font-weight:700; color:var(--amber700);}
+  .box.dark .k{ color:var(--amber400);}
+  .box h3{ font-size:18px; margin:5px 0 7px;}
+  .box.dark h3{ color:#faf7f1;}
+  .box p{ font-size:12px; color:var(--ink500); line-height:1.45;}
+  .box.dark p{ color:#9aabc4;}
+  .box li{ list-style:none; font-size:12px; color:var(--ink700); display:flex; gap:7px; margin-top:6px; line-height:1.35;}
+  .box.dark li{ color:#e4e9f0;}
+  .chk{ color:var(--amber); font-weight:800;}
+
+  .why{ margin-top:20px;}
+  .why .k{ font-size:10px; letter-spacing:2px; text-transform:uppercase; font-weight:700; color:var(--amber700);}
+  .why h2{ font-size:22px; margin-top:5px;}
+  .row{ display:flex; gap:14px; margin-top:13px;}
+  .pt{ flex:1; }
+  .pt .t{ font-weight:700; font-size:13px;}
+  .pt .d{ font-size:11.5px; color:var(--ink500); margin-top:3px; line-height:1.4;}
+
+  .inc{ margin-top:20px; background:var(--soft); border-radius:13px; padding:16px 18px;}
+  .inc .k{ font-size:10px; letter-spacing:2px; text-transform:uppercase; font-weight:700; color:var(--amber700);}
+  .inc ul{ margin-top:9px; display:grid; grid-template-columns:1fr 1fr; gap:6px 20px;}
+  .inc li{ list-style:none; font-size:12px; color:var(--ink700); display:flex; gap:7px;}
+
+  .cta{ margin-top:20px; background:var(--ink); color:#fff; border-radius:13px; display:flex; align-items:center; justify-content:space-between; padding:16px 22px;}
+  .cta .price{ font-family:Fraunces,serif; font-size:34px; font-weight:700;}
+  .cta .price small{ font-family:Inter; font-size:11px; color:#9aabc4; font-weight:400;}
+  .cta .r{ text-align:right;}
+  .cta .web{ font-family:Fraunces,serif; font-size:17px; font-weight:700; color:var(--amber400);}
+  .cta .sub{ font-size:11px; color:#9aabc4; margin-top:2px;}
+
+  .ft{ position:absolute; bottom:0.3in; left:0.6in; right:0.6in; font-size:10px; color:var(--ink500); display:flex; justify-content:space-between; border-top:1px solid #e2d8c2; padding-top:8px;}
+</style>
+</head>
+<body>
+  <div class="sheet">
+    <div class="hd">
+      <div class="brand">
+        <svg width="34" height="34" viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#0f1b2d"/><path d="M6 29 L15 17 L21 24 L27 14 L34 29 Z" fill="#2a3c59"/><path d="M7 30 C 15 14, 25 14, 33 9" stroke="#d99232" stroke-width="2.5" stroke-linecap="round" fill="none"/><circle cx="33" cy="9" r="3" fill="#e3a247"/></svg>
+        <div>
+          <div class="name">Pasadena <span class="ai">AI</span> Institute</div>
+          <div class="host">Hosted by Whistle Labs</div>
+        </div>
+      </div>
+      <div class="tag">Founding Cohort<br/>Fall 2026 · Pasadena</div>
+    </div>
+
+    <div class="pad">
+      <h1 class="h1">Take your team — or yourself — from <span class="a">zero to one</span> with AI.</h1>
+      <p class="sub">A 2-day, in-person, hands-on AI conference in Pasadena, built for professionals, business owners, and executives. No experience required. You leave having actually built something — not just taken notes.</p>
+
+      <div class="grid2">
+        <div class="col">
+          <div class="box">
+            <div class="k">Track 1 · Learn</div>
+            <h3>Zero Experience</h3>
+            <p>Never really used AI? We start at the very beginning and make you genuinely confident and fluent.</p>
+            <ul>
+              <li><span class="chk">✓</span> Tools set up &amp; working</li>
+              <li><span class="chk">✓</span> Prompting that gets real results</li>
+              <li><span class="chk">✓</span> AI for your daily work</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col">
+          <div class="box dark">
+            <div class="k">Track 2 · Build</div>
+            <h3>I Have an Idea</h3>
+            <p>Bring your idea for a product, tool, or workflow. We set up Cursor + Claude and get you building it.</p>
+            <ul>
+              <li><span class="chk">✓</span> Learn vibe coding</li>
+              <li><span class="chk">✓</span> Idea → working prototype</li>
+              <li><span class="chk">✓</span> Custom workflows &amp; agents</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="why">
+        <div class="k">Why it works</div>
+        <h2>A room, not a video. We stay until it clicks.</h2>
+        <div class="row">
+          <div class="pt"><div class="t">Hands-on</div><div class="d">You work on your own laptop, on your own goals, the whole time.</div></div>
+          <div class="pt"><div class="t">Small &amp; personal</div><div class="d">Capped at 24 seats with our team working the room.</div></div>
+          <div class="pt"><div class="t">Honest</div><div class="d">We build with AI daily — we'll tell you what's useful and what's hype.</div></div>
+        </div>
+      </div>
+
+      <div class="inc">
+        <div class="k">Every seat includes</div>
+        <ul>
+          <li><span class="chk">✓</span> Two full days, in person in Pasadena</li>
+          <li><span class="chk">✓</span> Complete software setup on your laptop</li>
+          <li><span class="chk">✓</span> Working lunches both days</li>
+          <li><span class="chk">✓</span> All materials &amp; resources</li>
+          <li><span class="chk">✓</span> A workflow or prototype you built</li>
+          <li><span class="chk">✓</span> Alumni community + next-steps plan</li>
+        </ul>
+      </div>
+
+      <div class="cta">
+        <div class="price">$995 <small>/ all-inclusive seat</small></div>
+        <div class="r">
+          <div class="web">pasadenaaiinstitute.com</div>
+          <div class="sub">Reserve online, or apply for a quick call · hello@pasadenaaiinstitute.com</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ft">
+      <span>Pasadena AI Institute — a Whistle Labs company</span>
+      <span>Serving Pasadena, Greater LA &amp; Southern California</span>
+    </div>
+  </div>
+</body>
+</html>
