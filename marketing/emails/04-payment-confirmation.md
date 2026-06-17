@@ -34,4 +34,4 @@ You made a good call. See you soon.
 Warmly,
 [your name]
 Pasadena AI Institute, hosted by Whistle Labs
-hello@pasadenaaiinstitute.com
+hello@whistleworkshop.com

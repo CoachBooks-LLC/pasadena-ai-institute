@@ -40,4 +40,4 @@ It was a real pleasure. Stay in touch, and tell me what you build.
 Warmly,
 [your name]
 Pasadena AI Institute, hosted by Whistle Labs
-hello@pasadenaaiinstitute.com
+hello@whistleworkshop.com

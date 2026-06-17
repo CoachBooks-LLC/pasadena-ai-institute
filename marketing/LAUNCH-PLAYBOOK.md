@@ -51,9 +51,8 @@ The website is already built (Next.js, deploys on Vercel). You are **configuring
 
 ### 2.1 — Buy the domain (GoDaddy)
 
-- [ ] Go to GoDaddy and search for the domain. Default target: **pasadenaaiinstitute.com** (this is the fallback already baked into `lib/site.ts`).
-- [ ] If that exact `.com` is taken/expensive, acceptable alternates: `pasadena-ai-institute.com`, `pasadenaai.institute`. **Pick the cleanest `.com` you can** — older professionals trust `.com`.
-- [ ] Buy it. Decline the upsells (you don't need GoDaddy hosting, email, or "web security" — Vercel and Resend cover what you need).
+- [x] Domain purchased on GoDaddy: **whistleworkshop.com** (already baked into `lib/site.ts` as the fallback).
+- [ ] Decline the GoDaddy upsells (you don't need GoDaddy hosting, email, or "web security" — Vercel and Resend cover what you need).
 - [ ] Turn on **domain privacy** (usually free) so your home address isn't public.
 - [ ] Write the exact domain you bought here: `________________________`
 
@@ -109,7 +108,7 @@ Right now the interest form **always saves leads to a file** (`data/leads.json`)
   - [ ] `LEAD_NOTIFY_EMAIL` = **where lead alerts go** (your own inbox — e.g. your Gmail). This is where you'll find out someone applied.
   - [ ] `RESEND_FROM_EMAIL` = the **from** address on those alerts. To start, you can leave this unset (it falls back to `onboarding@resend.dev`). For a polished setup, verify your domain in Resend (add the DNS records Resend gives you to GoDaddy, same as you did for Vercel) and use `hello@yourdomain.com`.
 - [ ] Redeploy.
-- [ ] **Bonus (recommended): set up `hello@` so replies reach you.** Lead alert emails set reply-to as the applicant's address, but you also publish `hello@pasadenaaiinstitute.com` (in `lib/site.ts`) as your contact. Set up email forwarding for that address (GoDaddy email forwarding, or Resend/Google Workspace) so people emailing you actually reach you.
+- [ ] **Bonus (recommended): set up `hello@` so replies reach you.** Lead alert emails set reply-to as the applicant's address, but you also publish `hello@whistleworkshop.com` (in `lib/site.ts`) as your contact. Set up email forwarding for that address (GoDaddy email forwarding, or Resend/Google Workspace) so people emailing you actually reach you.
 
 ### 2.6 — End-to-end test (do this before telling anyone the site is live)
 

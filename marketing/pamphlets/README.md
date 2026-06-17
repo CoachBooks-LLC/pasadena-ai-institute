@@ -24,7 +24,7 @@ printer) or print at home.
 
 ## Before you print
 
-- Swap `pasadenaaiinstitute.com` and `hello@pasadenaaiinstitute.com` for your
+- Swap `whistleworkshop.com` and `hello@whistleworkshop.com` for your
   real domain/email once they're live (find-and-replace in the file).
 - Confirm the cohort line ("Founding Cohort · Fall 2026") still matches your plan.
 - All three pull from the same brand system in [`../BRAND.md`](../BRAND.md).

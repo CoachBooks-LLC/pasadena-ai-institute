@@ -1,4 +1,5 @@
 import { promises as fs } from "fs";
+import os from "os";
 import path from "path";
 
 export const MAX_RESUME_BYTES = 8 * 1024 * 1024;
@@ -38,7 +39,13 @@ export const EXPERIENCE_LABELS: Record<string, string> = {
 };
 
 const ALLOWED_RESUME_EXTENSIONS = new Set([".pdf", ".doc", ".docx"]);
-const DATA_DIR = path.join(process.cwd(), "data");
+// On Vercel (and most serverless hosts) the project filesystem is read-only and
+// only the OS temp dir is writable. Writing there avoids EROFS noise, but it is
+// ephemeral — production lead capture must go through Resend email. Locally we
+// persist to ./data so leads survive between runs.
+const DATA_DIR = process.env.VERCEL
+  ? path.join(os.tmpdir(), "whistle-leads")
+  : path.join(process.cwd(), "data");
 const LEADS_FILE = path.join(DATA_DIR, "leads.json");
 const RESUMES_DIR = path.join(DATA_DIR, "resumes");
 
