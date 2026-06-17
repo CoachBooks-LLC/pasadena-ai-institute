@@ -31,7 +31,7 @@ export default function HomePage() {
             shadowIntensity="sm"
             glowIntensity="sm"
             borderRadius="28px"
-            className="max-w-2xl animate-fade-in -mt-16 bg-white/35 px-8 py-9 sm:px-10 sm:py-11 lg:-ml-20"
+            className="max-w-2xl animate-fade-in -mt-16 bg-white/50 px-8 py-9 sm:px-10 sm:py-11 lg:-ml-20"
           >
             <h1 className="font-serif text-[clamp(2.75rem,6.5vw,5rem)] font-normal leading-[1.05] tracking-[-0.025em] text-white">
               Go from zero to one
