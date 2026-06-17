@@ -1,27 +1,31 @@
 import { ReactNode } from "react";
+import { ArtPanel, type Artwork } from "@/components/ui/art-panel";
+import { art } from "@/lib/art";
 
 export function PageHero({
   eyebrow,
   title,
   intro,
+  artwork = art.waterLilyPond,
 }: {
   eyebrow: string;
   title: ReactNode;
   intro: ReactNode;
+  artwork?: Artwork;
 }) {
   return (
-    <section className="relative overflow-hidden border-b border-ink-100 bg-canvas-soft">
-      <div className="absolute -right-24 -top-16 h-64 w-64 rounded-full bg-amber-200/40 blur-3xl" />
-      <div className="absolute -left-24 top-20 h-56 w-56 rounded-full bg-ink-200/30 blur-3xl" />
-      <div className="container-x relative py-16 sm:py-20">
-        <div className="max-w-3xl">
-          <span className="eyebrow">{eyebrow}</span>
-          <h1 className="mt-4 text-4xl font-semibold leading-[1.08] sm:text-5xl">
+    <ArtPanel art={artwork} height="tall" scrim="left">
+      <div className="container-x py-24">
+        <div className="max-w-3xl animate-fade-rise">
+          <h1 className="font-serif text-5xl font-normal leading-[1.04] tracking-tight text-white sm:text-6xl lg:text-7xl">
             {title}
           </h1>
-          <p className="mt-5 text-lg leading-relaxed text-ink-600">{intro}</p>
+          <p className="mt-7 max-w-xl text-lg leading-relaxed text-white/75">
+            {intro}
+          </p>
+          <p className="mt-8 text-sm text-white/55">{eyebrow}</p>
         </div>
       </div>
-    </section>
+    </ArtPanel>
   );
 }

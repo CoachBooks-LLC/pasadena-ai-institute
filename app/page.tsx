@@ -1,317 +1,229 @@
 import Link from "next/link";
 import { Section, SectionHeading } from "@/components/Section";
 import { TrackCard } from "@/components/TrackCard";
-import { PricingCard } from "@/components/PricingCard";
+import { ApplicationTimeline } from "@/components/ApplicationTimeline";
 import { AgendaTimeline } from "@/components/AgendaTimeline";
-import { FAQAccordion } from "@/components/FAQAccordion";
-import { CTABand } from "@/components/CTA";
+import { Reveal } from "@/components/Reveal";
+import { ArtPanel } from "@/components/ui/art-panel";
+import { GlassButton } from "@/components/ui/apple-tahoe-liquid-glass-button";
+import { LiquidGlassCard } from "@/components/ui/liquid-weather-glass";
+import { art } from "@/lib/art";
 import { site } from "@/lib/site";
-import { tracks, outcomes, toolkit, faqs } from "@/lib/content";
+import { tracks, outcomes } from "@/lib/content";
 
 export default function HomePage() {
   return (
     <>
-      {/* ───────────── Hero ───────────── */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-canvas-soft to-canvas" />
-        <div className="absolute -right-24 top-10 -z-10 h-72 w-72 rounded-full bg-amber-200/40 blur-3xl" />
-        <div className="absolute -left-20 top-40 -z-10 h-72 w-72 rounded-full bg-ink-200/40 blur-3xl" />
-
-        <div className="container-x grid items-center gap-12 py-16 sm:py-24 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="animate-fade-up">
-            <span className="inline-flex items-center gap-2 rounded-full border border-amber-300 bg-amber-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-amber-700">
-              <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
-              {site.cohort.label} · {site.cohort.season} · Pasadena
-            </span>
-
-            <h1 className="mt-6 text-4xl font-semibold leading-[1.05] sm:text-5xl lg:text-6xl">
-              Go from{" "}
-              <span className="relative whitespace-nowrap text-amber-600">
-                zero to one
-              </span>{" "}
-              with AI — in two days.
+      {/* Hero - Monet, Water Lilies */}
+      <div className="relative">
+        <ArtPanel
+          art={art.waterLilies}
+          video="/art/hero-lilies-4.mp4"
+          height="hero"
+          scrim="left"
+          position="center"
+          noScrim
+        >
+          <div className="container-x">
+            <LiquidGlassCard
+            draggable={false}
+            blurIntensity="xl"
+            shadowIntensity="sm"
+            glowIntensity="sm"
+            borderRadius="28px"
+            className="max-w-2xl animate-fade-in -mt-16 bg-white/35 px-8 py-9 sm:px-10 sm:py-11 lg:-ml-20"
+          >
+            <h1 className="font-serif text-[clamp(2.75rem,6.5vw,5rem)] font-normal leading-[1.05] tracking-[-0.025em] text-white">
+              Go from zero to one
+              <br />
+              with AI.
             </h1>
-
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-600">
-              A hands-on, in-person AI conference in Pasadena for professionals,
-              owners, and executives. Come in knowing nothing — or bring an idea
-              you want to build. You&rsquo;ll leave with the tools set up, the
-              skills to use them, and something real you made.
+            <p className="mt-8 max-w-xl text-lg leading-relaxed text-white">
+              A two-day, in-person atelier in Pasadena for executives and
+              business owners. Come knowing nothing, or bring an idea. Leave
+              having made something real. The founding cohort is just ten seats,
+              by application.
             </p>
-
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Link href="/register" className="btn-primary">
-                Reserve your seat — {site.price.display}
+            <div className="mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
+              <Link href="/register" aria-label="Apply for a seat">
+                <GlassButton size="lg" contentClassName="gap-2 text-white">
+                  Apply for a seat
+                  <span aria-hidden>→</span>
+                </GlassButton>
               </Link>
-              <Link href="/register#interest" className="btn-outline">
-                Apply / ask a question
+              <Link
+                href="/conference"
+                className="text-sm font-medium text-white underline decoration-white/50 decoration-1 underline-offset-[6px] transition-colors hover:decoration-white"
+              >
+                See the two days
               </Link>
             </div>
-
-            <div className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-3 text-sm text-ink-500">
-              <span className="flex items-center gap-2">
-                <Dot /> In-person in {site.cohort.location}
+            <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white">
+              <span>
+                {site.cohort.label} · {site.cohort.dates.workshop}
               </span>
-              <span className="flex items-center gap-2">
-                <Dot /> Just {site.cohort.seats} seats
-              </span>
-              <span className="flex items-center gap-2">
-                <Dot /> No experience required
-              </span>
+              <span aria-hidden className="text-white/60">·</span>
+              <span>In-person in {site.cohort.location}</span>
+              <span aria-hidden className="text-white/60">·</span>
+              <span>Ten seats</span>
+              <span aria-hidden className="text-white/60">·</span>
+              <span>Apply by {site.cohort.dates.applyByShort}</span>
             </div>
+            </LiquidGlassCard>
           </div>
+        </ArtPanel>
 
-          {/* Hero infographic */}
-          <div className="animate-fade-up [animation-delay:120ms]">
-            <div className="rounded-xl2 border border-ink-100 bg-white p-3 shadow-lift">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/infographics/zero-to-one.svg"
-                alt="The zero-to-one journey: from never using AI to building and shipping with it over two days."
-                className="w-full"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
 
-      {/* ───────────── Trust strip ───────────── */}
-      <section className="border-y border-ink-100 bg-white">
-        <div className="container-x grid gap-6 py-8 text-center sm:grid-cols-3">
-          <Stat big="2 days" small="Hands-on, in person" />
-          <Stat big="Zero → One" small="Beginners & builders both" />
-          <Stat big="Pasadena" small={`Serving ${site.region}`} />
-        </div>
-      </section>
-
-      {/* ───────────── The problem / promise ───────────── */}
-      <Section>
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+      {/* Manifesto */}
+      <Section className="bg-canvas">
+        <Reveal className="grid gap-x-16 gap-y-8 lg:grid-cols-[1fr_1px_1fr]">
           <div>
-            <span className="eyebrow">Why we built this</span>
-            <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
-              Everyone says &ldquo;learn AI.&rdquo; Almost no one shows you how —
-              in a room, with real help.
+            <h2 className="font-serif text-4xl font-normal leading-[1.2] tracking-tight text-ink-900 sm:text-5xl">
+              Everyone says{" "}
+              <span className="italic">“leverage AI.”</span> Almost no one shows
+              you how, in a room, with real help.
             </h2>
-            <div className="mt-5 space-y-4 text-lg leading-relaxed text-ink-600">
-              <p>
-                The free videos are overwhelming. The webinars are sales pitches.
-                And it&rsquo;s hard to know what&rsquo;s genuinely useful versus
-                pure hype.
-              </p>
-              <p>
-                So we built the opposite: two days, in person, in Pasadena, in a
-                small group, where our team sits with you until it clicks — and
-                you walk out with something you actually built.
-              </p>
-            </div>
-            <div className="mt-7">
-              <Link href="/about" className="btn-ghost px-0 text-amber-700">
-                The story behind the Institute →
+          </div>
+          <div aria-hidden className="hidden bg-ink-100 lg:block" />
+          <div className="max-w-[60ch] space-y-5 text-lg leading-relaxed text-ink-600">
+            <p>
+              The free videos overwhelm. The webinars try to sell you. It&rsquo;s
+              hard to know what&rsquo;s genuinely useful versus pure hype.
+            </p>
+            <p>
+              So we built the opposite: two days, in person, in a small group,
+              where we sit with you until it clicks, and you walk out with
+              something you actually made.
+            </p>
+            <p>
+              <Link href="/about" className="link-accent">
+                The story behind the Workshop
               </Link>
-            </div>
+            </p>
           </div>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            {[
-              ["Overwhelmed by the noise?", "We cut straight to what matters for you."],
-              ["Worried you're “too late”?", "You're right on time. We start at zero."],
-              ["Tired of watching, not doing?", "This is 100% hands-on. You'll build."],
-              ["Have an idea, stuck on tools?", "We set everything up and get you going."],
-            ].map(([h, p]) => (
-              <div key={h} className="card">
-                <h3 className="text-lg font-semibold">{h}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-600">{p}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        </Reveal>
       </Section>
 
-      {/* ───────────── Two tracks ───────────── */}
-      <section className="bg-canvas-soft">
-        <div className="container-x py-16 sm:py-24">
+      {/* Two tracks */}
+      <Section className="border-t border-ink-100 bg-canvas-soft">
+        <Reveal>
           <SectionHeading
-            align="center"
-            eyebrow="Two ways in, one room"
-            title="Whichever describes you, you belong here"
-            intro="Choose your path at the end of Day 1 — and lean whichever way feels right. Both start from zero and end with something real."
+            title="Two ways in, one room"
+            intro="Choose your path at the end of Day 1; both start from zero and end with something real."
           />
-          <div className="mt-12 grid gap-7 lg:grid-cols-2">
-            {tracks.map((t) => (
-              <TrackCard key={t.id} track={t} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ───────────── Outcomes ───────────── */}
-      <Section>
-        <SectionHeading
-          eyebrow="What you walk away with"
-          title="You don't leave with notes. You leave with results."
-        />
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {outcomes.map((o, i) => (
-            <div key={o.title} className="card">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-ink-900 font-serif text-lg font-semibold text-amber-400">
-                {i + 1}
-              </span>
-              <h3 className="mt-4 text-lg font-semibold">{o.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink-600">
-                {o.detail}
-              </p>
-            </div>
+        </Reveal>
+        <div className="mt-12 grid gap-px bg-ink-100 sm:grid-cols-2">
+          {tracks.map((t, i) => (
+            <Reveal key={t.id} delay={i * 0.08}>
+              <TrackCard track={t} />
+            </Reveal>
           ))}
         </div>
       </Section>
 
-      {/* ───────────── Toolkit ───────────── */}
-      <section className="bg-ink-900 text-canvas">
-        <div className="container-x py-16 sm:py-20">
-          <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-            <div>
-              <span className="eyebrow text-amber-300">The toolkit</span>
-              <h2 className="mt-3 text-3xl font-semibold leading-tight text-canvas sm:text-4xl">
-                The exact tools the pros use — set up on your laptop.
-              </h2>
-              <p className="mt-4 text-lg text-ink-200">
-                No guesswork. By the end you&rsquo;ll have these installed,
-                configured, and actually working for you — not just heard about
-                them.
-              </p>
-              <Link
-                href="/conference"
-                className="mt-7 inline-flex text-amber-300 hover:text-amber-200"
-              >
-                See the full 2-day curriculum →
-              </Link>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2">
-              {toolkit.map((t) => (
-                <div
-                  key={t.name}
-                  className="rounded-xl border border-ink-700 bg-ink-800/60 p-5"
-                >
-                  <div className="font-serif text-lg font-semibold text-amber-300">
-                    {t.name}
-                  </div>
-                  <div className="mt-1 text-sm text-ink-200">{t.note}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ───────────── Agenda ───────────── */}
-      <Section id="agenda">
-        <SectionHeading
-          align="center"
-          eyebrow="The two days"
-          title="A clear, hour-by-hour path"
-          intro="Foundations and fluency on Day 1. Build something real on Day 2. Working lunches and expert help throughout."
-        />
-        <div className="mt-12">
-          <AgendaTimeline />
-        </div>
+      {/* Outcomes */}
+      <Section className="bg-canvas">
+        <Reveal>
+          <SectionHeading title="You don't leave with notes. You leave with results." />
+        </Reveal>
+        <dl className="mt-12 grid gap-x-16 gap-y-10 sm:grid-cols-2">
+          {outcomes.map((o, i) => (
+            <Reveal key={o.title} delay={i * 0.07}>
+              <div className="border-t border-ink-200 pt-6">
+                <dt className="font-serif text-2xl font-normal tracking-tight text-ink-900">
+                  {o.title}
+                </dt>
+                <dd className="mt-3 max-w-[52ch] leading-relaxed text-ink-600">
+                  {o.detail}
+                </dd>
+              </div>
+            </Reveal>
+          ))}
+        </dl>
       </Section>
 
-      {/* ───────────── Pricing ───────────── */}
-      <section className="bg-canvas-soft" id="pricing">
-        <div className="container-x py-16 sm:py-24">
-          <div className="grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr]">
-            <div>
-              <span className="eyebrow">Simple, all-inclusive</span>
-              <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
-                One price. Everything included.
-              </h2>
-              <p className="mt-4 text-lg leading-relaxed text-ink-600">
-                Two full days, all materials, lunches, the complete software
-                setup, and the alumni community. No upsells, no surprises.
-              </p>
-              <p className="mt-4 text-ink-600">
-                Not ready to commit? Apply with the interest form and we&rsquo;ll
-                set up a quick, no-pressure call to make sure it&rsquo;s the right
-                fit for you.
-              </p>
-            </div>
-            <PricingCard />
-          </div>
-        </div>
-      </section>
-
-      {/* ───────────── Pasadena ───────────── */}
-      <Section>
-        <div className="grid items-center gap-12 lg:grid-cols-2">
-          <div className="order-2 rounded-xl2 border border-ink-100 bg-white p-3 shadow-card lg:order-1">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/infographics/two-tracks.svg"
-              alt="Two tracks side by side: Zero Experience and I Have an Idea."
-              className="w-full"
-            />
-          </div>
-          <div className="order-1 lg:order-2">
-            <span className="eyebrow">Proudly Pasadena</span>
-            <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
-              A community institute, rooted right here.
-            </h2>
-            <p className="mt-5 text-lg leading-relaxed text-ink-600">
-              We&rsquo;re not a faceless online course. We&rsquo;re building a
-              local home for AI learning in Pasadena — for our neighbors across
-              Greater LA and Southern California who want to learn in person,
-              from real people, in their own backyard.
+      {/* Quote interlude - Van Gogh */}
+      <ArtPanel art={art.bedroom} height="band" scrim="full" position="center">
+        <div className="container-x text-center">
+          <blockquote className="mx-auto max-w-3xl">
+            <p className="font-serif text-3xl font-normal italic leading-[1.2] tracking-tight text-white sm:text-4xl">
+              “The best way to predict the future is to invent it.”
             </p>
-            <Link
-              href="/pasadena"
-              className="mt-7 inline-flex text-amber-700 hover:text-amber-800"
-            >
-              Why Pasadena →
-            </Link>
-          </div>
+            <footer className="mt-5 text-sm font-medium uppercase tracking-[0.18em] text-white/65">
+              Alan Kay
+            </footer>
+          </blockquote>
         </div>
-      </Section>
+      </ArtPanel>
 
-      {/* ───────────── FAQ ───────────── */}
-      <section className="bg-canvas-soft">
-        <div className="container-x py-16 sm:py-24">
+      {/* Agenda */}
+      <Section id="agenda" className="bg-canvas-soft">
+        <Reveal>
           <SectionHeading
-            align="center"
-            eyebrow="Questions"
-            title="Everything you might be wondering"
+            title="A clear, hour-by-hour path"
+            intro="Foundations and fluency on Day 1. Build something real on Day 2. Working lunches and expert help throughout."
           />
-          <div className="mx-auto mt-10 max-w-3xl">
-            <FAQAccordion items={faqs.slice(0, 6)} />
-            <p className="mt-6 text-center text-ink-600">
-              More questions?{" "}
-              <Link href="/faq" className="link-underline font-semibold">
-                See the full FAQ
-              </Link>{" "}
-              or{" "}
-              <Link href="/register#interest" className="link-underline font-semibold">
-                just ask us
-              </Link>
-              .
+        </Reveal>
+        <Reveal delay={0.1} className="mt-12">
+          <AgendaTimeline />
+        </Reveal>
+      </Section>
+
+      {/* How to claim a seat */}
+      <Section className="bg-canvas">
+        <Reveal>
+          <SectionHeading
+            title="Claim one of ten seats"
+            intro="This is our founding cohort, the first time we're running it. Seats are earned by application, not payment, and we review on a rolling basis. The room is small on purpose."
+          />
+        </Reveal>
+        <Reveal delay={0.1} className="mt-12">
+          <ApplicationTimeline />
+        </Reveal>
+        <Reveal delay={0.15} className="mt-10">
+          <Link href="/register" className="btn-primary">
+            Apply for a seat
+          </Link>
+        </Reveal>
+      </Section>
+
+      {/* Closing - Monet, Water Lily Pond (bookends the hero) */}
+      <ArtPanel
+        art={art.waterLilyPond}
+        height="tall"
+        scrim="left"
+        position="center"
+        kenBurns={false}
+        dim
+      >
+        <div className="container-x py-28">
+          <div className="max-w-xl">
+            <h2 className="font-serif text-4xl font-normal leading-[1.18] tracking-tight text-white sm:text-6xl">
+              Ten seats. One founding cohort.
+            </h2>
+            <p className="mt-6 max-w-md text-lg leading-relaxed text-white/90">
+              The first time we&rsquo;re running this, in Pasadena on{" "}
+              {site.cohort.dates.workshop}. Applications close{" "}
+              {site.cohort.dates.applyByShort}.
             </p>
+            <div className="mt-9 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
+              <Link href="/register" aria-label="Apply for a seat">
+                <GlassButton size="lg" contentClassName="gap-2 text-white">
+                  Apply for a seat
+                  <span aria-hidden>→</span>
+                </GlassButton>
+              </Link>
+              <Link
+                href="/faq"
+                className="text-sm font-medium text-white/80 underline decoration-white/30 decoration-1 underline-offset-[6px] transition-colors hover:decoration-white"
+              >
+                How it works
+              </Link>
+            </div>
           </div>
         </div>
-      </section>
-
-      <CTABand />
+      </ArtPanel>
     </>
-  );
-}
-
-function Dot() {
-  return <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />;
-}
-
-function Stat({ big, small }: { big: string; small: string }) {
-  return (
-    <div>
-      <div className="font-serif text-2xl font-semibold text-ink-900">{big}</div>
-      <div className="mt-1 text-sm text-ink-500">{small}</div>
-    </div>
   );
 }

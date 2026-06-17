@@ -3,18 +3,20 @@ import Link from "next/link";
 import { Section, SectionHeading } from "@/components/Section";
 import { PageHero } from "@/components/PageHero";
 import { CTABand } from "@/components/CTA";
+import { Reveal } from "@/components/Reveal";
+import { art } from "@/lib/art";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "The Pasadena AI Institute is hosted by Whistle Labs — a company that builds AI software every day. Now we're teaching it, in person, in Pasadena.",
+    "The Pasadena AI Workshop is hosted by Whistle Labs, a Pasadena-based studio that builds AI software every day. Founded here, we're giving back to the city that's home.",
 };
 
 const values = [
   {
     title: "Hands-on or it didn't happen",
-    body: "We measure success by what you build and use — not by how many slides you sat through.",
+    body: "We measure success by what you build and use, not by how many slides you sat through.",
   },
   {
     title: "Plain English, always",
@@ -30,105 +32,150 @@ const values = [
   },
 ];
 
+const promises = [
+  "We start where you are, even at zero.",
+  "You'll build something real, not just take notes.",
+  "We stay in the room until it clicks.",
+  "We'll be honest about what's worth your time.",
+];
+
 export default function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="About"
+        eyebrow="About the Workshop"
         title="We build with AI every day. Now we're teaching it."
-        intro="The Pasadena AI Institute is hosted by Whistle Labs — a company that designs and ships AI software and products. This is the class we wish existed for the smart, ambitious people in our own community."
+        intro="The Pasadena AI Workshop is hosted by Whistle Labs, a Pasadena-based studio that designs and ships AI software and products. This is the class we wish existed for the smart, ambitious people in our own community."
+        artwork={art.vanGoghFishing}
       />
 
-      <Section>
-        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
-          <div>
-            <span className="eyebrow">The story</span>
-            <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+      {/* Story */}
+      <Section className="bg-canvas">
+        <div className="grid gap-x-16 gap-y-12 lg:grid-cols-[1.1fr_0.9fr]">
+          <Reveal>
+            <h2 className="font-serif text-4xl font-normal leading-[1.18] tracking-tight text-ink-900 sm:text-5xl">
               From building products to building people
             </h2>
-            <div className="mt-5 space-y-4 text-lg leading-relaxed text-ink-600">
+            <div className="mt-7 max-w-[60ch] space-y-5 text-lg leading-relaxed text-ink-600">
               <p>
-                At Whistle Labs, AI isn&rsquo;t a buzzword — it&rsquo;s how we
+                At Whistle Labs, AI isn&rsquo;t a buzzword. It&rsquo;s how we
                 work. We use these exact tools every day to design, prototype,
                 and ship real software.
               </p>
               <p>
-                Again and again, friends, clients, and neighbors asked the same
-                thing: &ldquo;Can you just show me how to actually use this?&rdquo;
-                The honest answer was that there was no great in-person option —
-                especially for professionals who aren&rsquo;t engineers.
+                Again and again, friends and clients asked the same thing:
+                &ldquo;Can you just show me how to actually use this?&rdquo; There
+                was no great in-person option, especially for professionals who
+                aren&rsquo;t engineers.
               </p>
               <p>
-                So we created one. The Pasadena AI Institute takes everything we
-                know from building with AI and puts it in a room, in our
-                hometown, for the people who want to learn it for real.
+                So we created one: everything we know from building with AI, in a
+                room, in our hometown, for the people who want to learn it for
+                real.
               </p>
             </div>
-            <div className="mt-8 rounded-xl2 border border-ink-100 bg-canvas-soft p-6">
-              <p className="text-sm font-semibold uppercase tracking-[0.14em] text-ink-400">
-                Hosted by
-              </p>
-              <a
-                href={site.hostUrl}
-                className="mt-2 inline-flex items-baseline gap-2 font-serif text-2xl font-semibold text-ink-900 hover:text-amber-700"
-              >
-                Whistle Labs
-                <span className="text-sm font-sans font-normal text-ink-500">
-                  whistlelabs.ai →
-                </span>
-              </a>
-              <p className="mt-2 text-ink-600">
-                The studio behind the Institute — building AI software and
-                products, and now sharing the craft.
-              </p>
-            </div>
-          </div>
+          </Reveal>
 
-          <div>
-            <div className="card">
-              <h3 className="text-xl font-semibold">What we promise you</h3>
-              <ul className="mt-4 space-y-3">
-                {[
-                  "We start where you are — even at zero.",
-                  "You'll build something real, not just take notes.",
-                  "We stay in the room until it clicks.",
-                  "We'll be honest about what's worth your time.",
-                ].map((p) => (
-                  <li key={p} className="flex items-start gap-2.5 text-ink-700">
-                    <span className="mt-1 text-amber-600">→</span>
-                    <span>{p}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-7">
-                <Link href="/register" className="btn-primary w-full">
-                  Join the founding cohort
-                </Link>
-              </div>
-            </div>
-          </div>
+          <Reveal delay={0.1} className="lg:pl-12">
+            <h3 className="font-serif text-2xl font-normal tracking-tight text-ink-900">
+              What we promise you
+            </h3>
+            <ul className="mt-6 border-t border-ink-200">
+              {promises.map((p) => (
+                <li
+                  key={p}
+                  className="flex items-start gap-4 border-b border-ink-100 py-4 text-ink-700"
+                >
+                  <span aria-hidden className="text-accent">
+                    ·
+                  </span>
+                  <span>{p}</span>
+                </li>
+              ))}
+            </ul>
+            <Link href="/register" className="btn-primary mt-8 w-full">
+              Join the founding cohort
+            </Link>
+          </Reveal>
         </div>
       </Section>
 
-      <section className="bg-canvas-soft">
-        <div className="container-x py-16 sm:py-24">
-          <SectionHeading
-            align="center"
-            eyebrow="What we stand for"
-            title="How we run every cohort"
-          />
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {values.map((v) => (
-              <div key={v.title} className="card">
-                <h3 className="text-lg font-semibold">{v.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-600">
-                  {v.body}
+      {/* Whistle Labs - prominent, funnels to the studio */}
+      <section className="bg-ink-950 text-canvas">
+        <div className="container-x py-20 sm:py-24">
+          <div className="grid items-center gap-x-16 gap-y-10 lg:grid-cols-[1.1fr_0.9fr]">
+            <Reveal>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/45">
+                Hosted by
+              </p>
+              <h2 className="mt-4 font-serif text-5xl font-normal tracking-tight text-white sm:text-6xl">
+                Whistle Labs
+              </h2>
+              <div className="mt-6 max-w-[58ch] space-y-4 text-lg leading-relaxed text-white/75">
+                <p>
+                  Whistle Labs is a studio based in Pasadena. We design and ship
+                  AI software and products for companies, every day, with the
+                  same tools we&rsquo;ll set up with you in the room.
+                </p>
+                <p>
+                  We were founded here, we work and live here, and this workshop
+                  is how we give back to the city that&rsquo;s home. When
+                  you&rsquo;re ready to build something for real, this is the team
+                  that does it.
                 </p>
               </div>
-            ))}
+              <a
+                href={site.hostUrl}
+                className="btn mt-9 bg-canvas text-ink-900 hover:bg-white"
+              >
+                See what we build at whistlelabs.ai
+                <span aria-hidden>→</span>
+              </a>
+            </Reveal>
+
+            <Reveal delay={0.1}>
+              <dl className="divide-y divide-white/10 border-y border-white/10">
+                {[
+                  ["Based in", "Pasadena, California"],
+                  ["We do", "AI software & products for companies"],
+                  ["This workshop", "How we give back to Pasadena"],
+                ].map(([k, v]) => (
+                  <div
+                    key={k}
+                    className="flex items-baseline justify-between gap-6 py-5"
+                  >
+                    <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-white/45">
+                      {k}
+                    </dt>
+                    <dd className="text-right font-serif text-lg text-white">
+                      {v}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </Reveal>
           </div>
         </div>
       </section>
+
+      {/* Values */}
+      <Section className="bg-canvas-soft">
+        <SectionHeading title="How we run every cohort" />
+        <dl className="mt-12 grid gap-x-16 gap-y-10 sm:grid-cols-2">
+          {values.map((v, i) => (
+            <Reveal key={v.title} delay={i * 0.07}>
+              <div className="border-t border-ink-200 pt-6">
+                <dt className="font-serif text-2xl font-normal tracking-tight text-ink-900">
+                  {v.title}
+                </dt>
+                <dd className="mt-3 max-w-[52ch] leading-relaxed text-ink-600">
+                  {v.body}
+                </dd>
+              </div>
+            </Reveal>
+          ))}
+        </dl>
+      </Section>
 
       <CTABand />
     </>

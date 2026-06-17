@@ -1,39 +1,45 @@
 import Link from "next/link";
+import { ArtPanel } from "@/components/ui/art-panel";
+import { GlassButton } from "@/components/ui/apple-tahoe-liquid-glass-button";
+import { art } from "@/lib/art";
 import { site } from "@/lib/site";
 
 export function CTABand() {
   return (
-    <section className="py-16 sm:py-20">
-      <div className="container-x">
-        <div className="relative overflow-hidden rounded-xl2 bg-ink-900 px-8 py-14 text-center text-canvas sm:px-16">
-          <div className="absolute -left-20 -top-20 h-56 w-56 rounded-full bg-amber-500/15 blur-3xl" />
-          <div className="absolute -bottom-24 -right-10 h-64 w-64 rounded-full bg-rose-500/10 blur-3xl" />
-          <div className="relative mx-auto max-w-2xl">
-            <span className="eyebrow text-amber-300">
-              {site.cohort.label} · {site.cohort.season} · {site.cohort.location}
-            </span>
-            <h2 className="mt-4 text-3xl font-semibold leading-tight text-canvas sm:text-4xl">
-              Two days from zero to one. In Pasadena.
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl text-lg text-ink-200">
-              Seats are limited to {site.cohort.seats}. Reserve yours, or apply
-              and we&rsquo;ll set up a quick call to make sure it&rsquo;s the
-              right fit.
-            </p>
-            <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-              <Link href="/register" className="btn-primary">
-                Reserve your seat — {site.price.display}
-              </Link>
-              <Link
-                href="/register#interest"
-                className="btn-outline border-ink-600 text-canvas hover:bg-canvas hover:text-ink-900"
-              >
-                Apply / ask a question
-              </Link>
-            </div>
+    <ArtPanel
+      art={art.waterLilyPond}
+      height="tall"
+      scrim="left"
+      position="center"
+      kenBurns={false}
+      dim
+    >
+      <div className="container-x py-28">
+        <div className="max-w-xl">
+          <h2 className="font-serif text-4xl font-normal leading-[1.1] tracking-tight text-white sm:text-6xl">
+            Ten seats. One founding cohort.
+          </h2>
+          <p className="mt-6 max-w-md text-lg leading-relaxed text-white/90">
+            The first time we&rsquo;re running this, in person in Pasadena on{" "}
+            {site.cohort.dates.workshop}. Apply for a seat by{" "}
+            {site.cohort.dates.applyByShort}.
+          </p>
+          <div className="mt-9 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
+            <Link href="/register" aria-label="Apply for a seat">
+              <GlassButton size="lg" contentClassName="gap-2 text-white">
+                Apply for a seat
+                <span aria-hidden>→</span>
+              </GlassButton>
+            </Link>
+            <Link
+              href="/faq"
+              className="text-sm font-medium text-white/80 underline decoration-white/30 decoration-1 underline-offset-[6px] transition-colors hover:decoration-white"
+            >
+              How it works
+            </Link>
           </div>
         </div>
       </div>
-    </section>
+    </ArtPanel>
   );
 }

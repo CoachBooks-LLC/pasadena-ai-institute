@@ -1,30 +1,69 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { Logo } from "./Logo";
+import { GlassButton } from "@/components/ui/apple-tahoe-liquid-glass-button";
 import { nav } from "@/lib/site";
 
 export function Nav() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Over the art hero (top of every page) the bar is transparent with light
+  // text; once scrolled it becomes the gallery wall with ink text.
+  const solid = scrolled || open;
+  const tone = solid ? "dark" : "light";
 
   return (
-    <header className="sticky top-0 z-50 border-b border-ink-100 bg-canvas/85 backdrop-blur-md">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
+        solid
+          ? "border-b border-ink-100 bg-canvas/90 backdrop-blur-md"
+          : "border-b border-transparent bg-transparent"
+      }`}
+    >
       <div className="container-x flex h-20 items-center justify-between">
-        <Logo />
+        <Logo tone={tone} />
 
-        <nav className="hidden items-center gap-7 lg:flex">
-          {nav.slice(1).map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-ink-600 transition-colors hover:text-ink-900"
+        <nav className="hidden items-center gap-9 lg:flex">
+          {nav.slice(1).map((item) => {
+            const active = pathname === item.href;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`text-sm transition-colors ${
+                  solid
+                    ? active
+                      ? "text-ink-900"
+                      : "text-ink-500 hover:text-ink-900"
+                    : active
+                      ? "text-white"
+                      : "text-white hover:text-white/80"
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
+          <Link href="/register" aria-label="Apply for a seat">
+            <GlassButton
+              size="sm"
+              className="rounded-[4px] px-5 py-2.5"
+              contentClassName={solid ? "text-ink-900" : "text-white"}
             >
-              {item.label}
-            </Link>
-          ))}
-          <Link href="/register" className="btn-primary">
-            Reserve a Seat
+              Apply
+            </GlassButton>
           </Link>
         </nav>
 
@@ -33,21 +72,23 @@ export function Nav() {
           aria-label="Toggle menu"
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex items-center justify-center rounded-md p-2 text-ink-700 lg:hidden"
+          className={`inline-flex items-center justify-center rounded-md p-2 lg:hidden ${
+            solid ? "text-ink-800" : "text-white"
+          }`}
         >
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
             {open ? (
               <path
                 d="M6 6l12 12M18 6L6 18"
                 stroke="currentColor"
-                strokeWidth="2"
+                strokeWidth="1.6"
                 strokeLinecap="round"
               />
             ) : (
               <path
-                d="M4 7h16M4 12h16M4 17h16"
+                d="M4 8h16M4 16h16"
                 stroke="currentColor"
-                strokeWidth="2"
+                strokeWidth="1.6"
                 strokeLinecap="round"
               />
             )}
@@ -57,13 +98,13 @@ export function Nav() {
 
       {open && (
         <div className="border-t border-ink-100 bg-canvas lg:hidden">
-          <nav className="container-x flex flex-col gap-1 py-4">
+          <nav className="container-x flex flex-col py-3">
             {nav.slice(1).map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-3 text-base font-medium text-ink-700 hover:bg-canvas-soft"
+                className="border-b border-ink-100 py-4 text-base text-ink-700 last:border-0 hover:text-ink-900"
               >
                 {item.label}
               </Link>
@@ -71,9 +112,9 @@ export function Nav() {
             <Link
               href="/register"
               onClick={() => setOpen(false)}
-              className="btn-primary mt-2 w-full"
+              className="btn-primary mt-4 w-full"
             >
-              Reserve a Seat
+              Apply
             </Link>
           </nav>
         </div>

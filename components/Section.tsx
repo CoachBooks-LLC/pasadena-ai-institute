@@ -10,7 +10,7 @@ export function Section({
   id?: string;
 }) {
   return (
-    <section id={id} className={`py-16 sm:py-24 ${className}`}>
+    <section id={id} className={`py-14 sm:py-20 ${className}`}>
       <div className="container-x">{children}</div>
     </section>
   );
@@ -28,15 +28,19 @@ export function SectionHeading({
   align?: "left" | "center";
 }) {
   const alignment =
-    align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-2xl";
+    align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl";
   return (
     <div className={alignment}>
-      {eyebrow && <span className="eyebrow">{eyebrow}</span>}
-      <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+      {eyebrow && <p className="eyebrow text-ink-500">{eyebrow}</p>}
+      <h2
+        className={`${eyebrow ? "mt-5" : ""} font-serif text-4xl font-normal leading-[1.18] tracking-tight text-ink-900 sm:text-5xl`}
+      >
         {title}
       </h2>
       {intro && (
-        <p className="mt-4 text-lg leading-relaxed text-ink-600">{intro}</p>
+        <p className="mt-5 max-w-[58ch] text-lg leading-relaxed text-ink-600">
+          {intro}
+        </p>
       )}
     </div>
   );

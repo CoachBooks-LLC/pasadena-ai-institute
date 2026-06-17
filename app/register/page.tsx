@@ -1,141 +1,79 @@
 import type { Metadata } from "next";
+import { Section } from "@/components/Section";
 import { PageHero } from "@/components/PageHero";
-import { InterestForm } from "@/components/InterestForm";
-import { ReserveButton } from "@/components/ReserveButton";
+import { ApplicationForm } from "@/components/ApplicationForm";
+import { ApplicationTimeline } from "@/components/ApplicationTimeline";
+import { art } from "@/lib/art";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Reserve a Seat",
+  title: "Apply",
   description:
-    "Reserve your seat in the Pasadena AI Institute founding cohort — pay securely online, or apply with the interest form and we'll set up a quick call.",
+    "Apply for one of ten seats in the Pasadena AI Workshop founding cohort. Share your resume or LinkedIn and a couple of quick answers, reviewed on a rolling basis.",
 };
 
-const includes = [
-  "Two full days, in person in Pasadena",
-  "Complete software setup on your laptop",
+const included = [
+  "Two full days, in-person in Pasadena",
+  "A cohort of ten, with real personal attention",
+  "All software set up on your own laptop",
   "Working lunches both days",
-  "All materials + alumni community",
   "A workflow or prototype you built",
-  "Personalized next-steps plan",
+  "A personalized next-steps plan",
 ];
 
-export default function RegisterPage({
-  searchParams,
-}: {
-  searchParams: { status?: string };
-}) {
-  const status = searchParams?.status;
-
+export default function RegisterPage() {
   return (
     <>
       <PageHero
-        eyebrow={`${site.cohort.label} · ${site.cohort.season} · ${site.cohort.location}`}
+        eyebrow={`${site.cohort.label} · ${site.cohort.dates.workshop} · ${site.cohort.location}`}
         title="Claim your seat"
-        intro={`Two ways to join the founding cohort: reserve your spot now with secure payment, or apply with the interest form and we'll set up a quick call first. Limited to ${site.cohort.seats} seats.`}
+        intro={`Ten seats in the founding cohort, earned by application, not payment. The workshop is completely free. Attach your resume and answer a couple of quick questions. We review on a rolling basis and close ${site.cohort.dates.applyBy}.`}
+        artwork={art.grandeJatte}
       />
 
-      {/* Status banners from Stripe redirect */}
-      {status === "success" && (
-        <div className="container-x pt-10">
-          <div className="rounded-xl2 border border-amber-300 bg-amber-50 p-6 text-center">
-            <h2 className="text-2xl font-semibold text-amber-800">
-              🎉 You&rsquo;re in — welcome to the founding cohort!
+      <Section className="bg-canvas">
+        <div className="grid gap-x-16 gap-y-14 lg:grid-cols-[0.85fr_1.15fr]">
+          {/* How it works + what you get */}
+          <div>
+            <h2 className="font-serif text-3xl font-normal tracking-tight text-ink-900 sm:text-4xl">
+              How it works
             </h2>
-            <p className="mt-2 text-amber-800">
-              Your payment went through. Check your email for a receipt and
-              confirmation — we&rsquo;ll be in touch shortly with everything you
-              need to prepare.
-            </p>
-          </div>
-        </div>
-      )}
-      {status === "cancelled" && (
-        <div className="container-x pt-10">
-          <div className="rounded-xl2 border border-ink-200 bg-white p-6 text-center">
-            <h2 className="text-xl font-semibold">No worries — checkout cancelled</h2>
-            <p className="mt-2 text-ink-600">
-              Nothing was charged. Whenever you&rsquo;re ready, you can reserve
-              below — or apply with the interest form and we&rsquo;ll set up a
-              quick call.
-            </p>
-          </div>
-        </div>
-      )}
-
-      <section className="py-16 sm:py-20">
-        <div className="container-x grid gap-8 lg:grid-cols-2">
-          {/* Path A — Pay now */}
-          <div className="relative overflow-hidden rounded-xl2 border border-ink-800 bg-ink-900 p-8 text-canvas shadow-lift sm:p-10">
-            <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-amber-500/15 blur-2xl" />
-            <div className="relative flex h-full flex-col">
-              <span className="eyebrow text-amber-300">Ready to commit?</span>
-              <h2 className="mt-3 text-3xl font-semibold text-canvas">
-                Reserve your seat
-              </h2>
-              <div className="mt-4 flex items-end gap-2">
-                <span className="font-serif text-5xl font-semibold">
-                  {site.price.display}
-                </span>
-                <span className="mb-2 text-sm text-ink-300">
-                  / {site.price.label}
-                </span>
-              </div>
-              <p className="mt-3 text-ink-200">
-                One simple price, everything included. Secure checkout powered by
-                Stripe.
-              </p>
-
-              <ul className="mt-6 space-y-2.5">
-                {includes.map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm">
-                    <svg
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      className="mt-0.5 shrink-0"
-                      aria-hidden
-                    >
-                      <path
-                        d="M5 12.5l4 4 10-10"
-                        className="stroke-amber-400"
-                        strokeWidth="2.2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                    <span className="text-ink-100">{item}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-auto pt-8">
-                <ReserveButton />
-                <p className="mt-3 text-center text-xs text-ink-400">
-                  Secured by Stripe. You can pay by card.
-                </p>
-              </div>
+            <div className="mt-8">
+              <ApplicationTimeline />
             </div>
+
+            <h3 className="mt-12 font-serif text-2xl font-normal tracking-tight text-ink-900">
+              What a seat includes
+            </h3>
+            <ul className="mt-5 border-t border-ink-200">
+              {included.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-3 border-b border-ink-100 py-3.5 text-sm text-ink-700"
+                >
+                  <span aria-hidden className="text-accent">
+                    ·
+                  </span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Path B — Interest form */}
-          <div id="interest" className="scroll-mt-28">
-            <span className="eyebrow">Want to talk first?</span>
-            <h2 className="mt-3 text-3xl font-semibold">
-              Apply &amp; we&rsquo;ll set up a call
+          {/* The application */}
+          <div id="apply" className="scroll-mt-28">
+            <h2 className="font-serif text-3xl font-normal tracking-tight text-ink-900 sm:text-4xl">
+              Your application
             </h2>
-            <p className="mt-3 text-ink-600">
-              Tell us a little about you. We&rsquo;ll review, reach out within
-              1&ndash;2 business days, and set up a quick, no-pressure Zoom to
-              make sure it&rsquo;s the right fit — then send you a payment link
-              if you want to move forward.
+            <p className="mt-4 max-w-[52ch] text-lg leading-relaxed text-ink-600">
+              If it&rsquo;s not this time, you can apply for the next cohort.
             </p>
-            <div className="mt-6">
-              <InterestForm />
+            <div className="mt-7">
+              <ApplicationForm />
             </div>
           </div>
         </div>
-      </section>
+      </Section>
     </>
   );
 }

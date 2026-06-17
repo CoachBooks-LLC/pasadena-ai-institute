@@ -1,11 +1,11 @@
 /**
- * Central site configuration for the Pasadena AI Institute.
+ * Central site configuration for the Pasadena AI Workshop.
  * Edit values here (price, dates, domain, contact) and they propagate
  * across the whole site, emails, and metadata.
  */
 
 export const site = {
-  name: "Pasadena AI Institute",
+  name: "Pasadena AI Workshop",
   shortName: "Pasadena AI",
   host: "Whistle Labs",
   hostUrl: "https://whistlelabs.ai",
@@ -16,16 +16,25 @@ export const site = {
   city: "Pasadena, California",
   region: "Greater Los Angeles & Southern California",
 
-  // The founding cohort (waitlist / apply-now framing).
+  // The founding cohort: the first ever, application-only, ten seats.
   cohort: {
     label: "Founding Cohort",
-    season: "Fall 2026",
+    season: "July 2026",
     location: "Pasadena, CA",
-    seats: 24,
+    seats: 10,
     durationDays: 2,
+    dates: {
+      workshop: "July 11-12, 2026",
+      workshopShort: "Jul 11-12",
+      applyBy: "Friday, June 26, 2026",
+      applyByShort: "Fri, Jun 26",
+      decisionsBy: "Monday, June 29, 2026",
+      decisionsByShort: "Mon, Jun 29",
+    },
   },
 
-  // Pricing — single seat.
+  // Pricing is intentionally off for the founding cohort (application, not
+  // payment). Kept here for future paid cohorts.
   price: {
     amountUsd: 995,
     display: "$995",
@@ -35,7 +44,7 @@ export const site = {
   },
 
   description:
-    "A 2-day, in-person AI conference in Pasadena that takes professionals from zero to one with AI — whether you're starting from scratch or building a real idea. Hosted by Whistle Labs.",
+    "A 2-day, in-person AI workshop in Pasadena that takes professionals from zero to one with AI, whether you're starting from scratch or building a real idea. Hosted by Whistle Labs, a Pasadena-based studio.",
 
   social: {
     linkedin: "https://www.linkedin.com/company/whistle-labs",
@@ -46,7 +55,7 @@ export type Site = typeof site;
 
 export const nav = [
   { href: "/", label: "Home" },
-  { href: "/conference", label: "The Conference" },
+  { href: "/conference", label: "The Workshop" },
   { href: "/who-its-for", label: "Who It's For" },
   { href: "/pasadena", label: "Pasadena" },
   { href: "/about", label: "About" },

@@ -16,19 +16,19 @@ export type Track = {
 export const tracks: Track[] = [
   {
     id: "zero",
-    eyebrow: "Track 1 — Start from scratch",
+    eyebrow: "Track 1 · Start from scratch",
     title: "Zero Experience",
     blurb:
-      "You've never really used AI — or you've poked at ChatGPT and want to actually get it. Two days from \"what is this?\" to confident, daily AI user.",
+      "You've never really used AI, or you've poked at ChatGPT and want to actually get it. Two days from \"what is this?\" to confident, daily AI user.",
     forYou: [
       "You've never used AI tools in your work (or barely have)",
       "You keep hearing \"AI\" everywhere and don't want to be left behind",
-      "You're a professional, owner, or executive aged 35–60 who wants a clear, jargon-free on-ramp",
+      "You're a professional, owner, or executive aged 35 to 60 who wants a clear, jargon-free on-ramp",
       "You learn best hands-on, in a room, with someone who'll answer your questions",
     ],
     outcomes: [
       "Set up and confidently use modern AI assistants (Claude, ChatGPT)",
-      "Write prompts that get real, usable results — not generic fluff",
+      "Write prompts that get real, usable results, not generic fluff",
       "Understand AI agents, what they do, and where they help your work",
       "Build at least one practical AI workflow you'll use the next Monday",
       "Know exactly what's hype and what's genuinely useful for you",
@@ -36,10 +36,10 @@ export const tracks: Track[] = [
   },
   {
     id: "build",
-    eyebrow: "Track 2 — Zero to one",
+    eyebrow: "Track 2 · Zero to one",
     title: "I Have an Idea",
     blurb:
-      "You have a company, product, or workflow you want to build. Tell us the idea — we set up your tools and get you from zero to one, building for real.",
+      "You have a company, product, or workflow you want to build. Tell us the idea, and we set up your tools and get you from zero to one, building for real.",
     forYou: [
       "You have an idea for an app, product, internal tool, or automation",
       "You want to stop waiting on a developer and start building it yourself",
@@ -48,8 +48,8 @@ export const tracks: Track[] = [
     ],
     outcomes: [
       "Cursor + Claude installed and configured on your own machine",
-      "Learn vibe coding — building software by describing what you want",
-      "Go from idea → working prototype during the two days",
+      "Learn vibe coding: building software by describing what you want",
+      "Go from idea to working prototype during the two days",
       "Set up custom AI workflows and agents tailored to your idea",
       "Leave with a project you can keep building and a path forward",
     ],
@@ -62,19 +62,19 @@ export type AgendaDay = { day: string; theme: string; items: AgendaItem[] };
 export const agenda: AgendaDay[] = [
   {
     day: "Day 1",
-    theme: "Foundations & Fluency — get set up, get confident",
+    theme: "Foundations & Fluency: get set up, get confident",
     items: [
       {
         time: "9:00",
         title: "Welcome & the real state of AI",
         detail:
-          "A clear, hype-free picture of what AI can and can't do today — and what it means for you and your business.",
+          "A clear, hype-free picture of what AI can and can't do today, and what it means for you and your business.",
       },
       {
         time: "9:45",
         title: "Get set up",
         detail:
-          "Everyone leaves the morning with the right accounts and tools installed and working — Claude, ChatGPT, and more.",
+          "Everyone leaves the morning with the right accounts and tools installed and working: Claude, ChatGPT, and more.",
       },
       {
         time: "11:00",
@@ -91,7 +91,7 @@ export const agenda: AgendaDay[] = [
         time: "1:30",
         title: "AI for your daily work",
         detail:
-          "Email, research, documents, analysis, planning — build workflows around what you actually do.",
+          "Email, research, documents, analysis, planning. Build workflows around what you actually do.",
       },
       {
         time: "3:00",
@@ -109,7 +109,7 @@ export const agenda: AgendaDay[] = [
   },
   {
     day: "Day 2",
-    theme: "Zero to One — build something real",
+    theme: "Zero to One: build something real",
     items: [
       {
         time: "9:00",
@@ -167,7 +167,7 @@ export const outcomes: Outcome[] = [
   {
     title: "A workflow (or prototype) you built",
     detail:
-      "You leave with something real — an AI workflow for your work, or a working prototype of your idea.",
+      "You leave with something real: an AI workflow for your work, or a working prototype of your idea.",
   },
   {
     title: "Clarity on what matters",
@@ -177,7 +177,7 @@ export const outcomes: Outcome[] = [
   {
     title: "A local community",
     detail:
-      "Join a Pasadena-rooted network of professionals learning and building with AI — and keep the momentum going.",
+      "Join a Pasadena-rooted network of professionals learning and building with AI, and keep the momentum going.",
   },
 ];
 
@@ -199,38 +199,46 @@ export const faqs: Faq[] = [
   },
   {
     q: "Who is this really for?",
-    a: "Professionals, business owners, and executives — especially folks aged roughly 35 to 60 — across Pasadena, Greater LA, and Southern California who want a clear, hands-on, in-person way to actually get AI. Whether you want to learn, or you have an idea to build, you'll fit right in.",
+    a: "Professionals, business owners, and executives, especially folks aged roughly 35 to 60, across Pasadena, Greater LA, and Southern California who want a clear, hands-on, in-person way to actually get AI. Whether you want to learn, or you have an idea to build, you'll fit right in.",
   },
   {
     q: "What will I actually walk away with?",
-    a: "Real, working results. Either a set of AI tools and workflows installed and ready for your daily work, or a working prototype of your idea — plus the skills and a personalized plan to keep going.",
+    a: "Real, working results. Either a set of AI tools and workflows installed and ready for your daily work, or a working prototype of your idea, plus the skills and a personalized plan to keep going.",
   },
   {
     q: "What's the difference between the two tracks?",
-    a: "Track 1 (Zero Experience) is for getting confident and fluent with AI from scratch. Track 2 (I Have an Idea) is for people who want to build something — we set up Cursor and Claude and get you from idea to working prototype. You choose at the end of Day 1, and you can lean either way.",
+    a: "Track 1 (Zero Experience) is for getting confident and fluent with AI from scratch. Track 2 (I Have an Idea) is for people who want to build something: we set up Cursor and Claude and get you from idea to working prototype. You choose at the end of Day 1, and you can lean either way.",
   },
   {
-    q: "Where and when is it held?",
-    a: "In Pasadena, California. The founding cohort is scheduled for Fall 2026 with limited seats. Apply or reserve now to claim a spot and we'll confirm exact dates and the venue as the cohort fills.",
+    q: "When and where is it?",
+    a: "The founding cohort runs July 11-12, 2026, in person in Pasadena, California. Applications are reviewed on a rolling basis and close Friday, June 26; we email every applicant a decision by Monday, June 29. The workshop is in Pasadena, and we send the exact venue to applicants once they're accepted.",
   },
   {
-    q: "What does the $995 include?",
-    a: "Two full days of in-person, hands-on instruction in a small cohort, all materials, working lunches both days, the full software setup on your own machine, and access to the alumni community. Everything you need is included.",
+    q: "How does the application work?",
+    a: "Short and human, not a gauntlet. You share a link to your resume or LinkedIn and answer a couple of quick questions about what you want to build or learn. We read every application as it comes in and reply by Monday, June 29. If it's not this time, you can apply for the next cohort.",
+  },
+  {
+    q: "Is there a cost?",
+    a: "No payment for the founding cohort. Seats are earned by application, not bought. This first cohort is about building something exceptional together. A seat includes two full days of hands-on instruction, all materials, working lunches both days, the full software setup on your own machine, and the alumni community.",
+  },
+  {
+    q: "Why only ten seats?",
+    a: "It's the first time we're running this, and we want it to be exceptional. Ten people means our team can sit with each of you until it clicks, and the room stays full of people genuinely ready to build.",
   },
   {
     q: "Do I need to bring anything?",
-    a: "Just your laptop and your curiosity. If you're on Track 2, bring your idea — even a rough one. We handle the rest, including getting all the software installed and configured for you.",
+    a: "Just your laptop and your curiosity. If you're on Track 2, bring your idea, even a rough one. We handle the rest, including getting all the software installed and configured for you.",
   },
   {
     q: "How big is the cohort?",
-    a: "Intentionally small so everyone gets real attention. The founding cohort is capped, and our team works the room throughout so you're never stuck.",
+    a: "Ten people. Intentionally tiny so everyone gets real attention and our team can work the room throughout, so you're never stuck.",
   },
   {
     q: "What if I want to send my team?",
-    a: "Great idea. Reach out about group seats and private cohorts for your company — we can tailor a session to your team's goals. Use the interest form and mention your team.",
+    a: "Great idea. We can tailor a private cohort to your team's goals down the line. Mention your team and what you're after in your application and we'll be in touch.",
   },
   {
     q: "Who's behind this?",
-    a: "The Pasadena AI Institute is hosted by Whistle Labs, a company that builds AI software and products. We do this work every day — now we're teaching it, in person, in our own backyard.",
+    a: "The Pasadena AI Workshop is hosted by Whistle Labs, a company that builds AI software and products. We do this work every day, and now we're teaching it, in person, in our own backyard.",
   },
 ];

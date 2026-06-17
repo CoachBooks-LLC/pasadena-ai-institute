@@ -7,7 +7,7 @@ export function FAQAccordion({ items }: { items: Faq[] }) {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <div className="divide-y divide-ink-100 overflow-hidden rounded-xl2 border border-ink-100 bg-white">
+    <div className="divide-y divide-ink-100 border-y border-ink-200">
       {items.map((item, i) => {
         const isOpen = open === i;
         return (
@@ -16,7 +16,7 @@ export function FAQAccordion({ items }: { items: Faq[] }) {
               type="button"
               onClick={() => setOpen(isOpen ? null : i)}
               aria-expanded={isOpen}
-              className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors hover:bg-canvas-soft"
+              className="flex w-full items-center justify-between gap-4 py-6 text-left transition-colors hover:text-accent"
             >
               <span className="font-semibold text-ink-900">{item.q}</span>
               <svg
@@ -45,7 +45,7 @@ export function FAQAccordion({ items }: { items: Faq[] }) {
               }`}
             >
               <div className="overflow-hidden">
-                <p className="px-6 pb-6 leading-relaxed text-ink-600">
+                <p className="max-w-[60ch] pb-7 pr-8 leading-relaxed text-ink-600">
                   {item.a}
                 </p>
               </div>

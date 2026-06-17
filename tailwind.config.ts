@@ -1,9 +1,10 @@
 import type { Config } from "tailwindcss";
 
 /**
- * Pasadena AI Institute brand tokens.
- * Palette: deep ink/navy primary + warm amber/gold accent + off-white canvas,
- * with San Gabriel / Craftsman-warm neutrals. See marketing/BRAND.md.
+ * Pasadena AI Institute — "gallery" design system.
+ * Near-monochrome chrome (cool charcoal ink on true near-white gallery wall);
+ * all saturated color comes from real impressionist artwork. One sparing accent:
+ * a deep Monet pond teal. See DESIGN.md.
  */
 const config: Config = {
   content: [
@@ -14,36 +15,48 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Primary — deep ink/navy (San Gabriel night sky)
+        // gallery wall surfaces (legacy `canvas` name kept, remapped)
+        canvas: {
+          DEFAULT: "#fbfbf9",
+          soft: "#f4f4f1",
+          muted: "#ececea",
+        },
+        bg: "#fbfbf9",
+        surface: "#ffffff",
+        // cool charcoal ink ramp (neutralized — no more warm navy)
         ink: {
-          DEFAULT: "#0f1b2d",
-          50: "#f3f5f8",
-          100: "#e4e9f0",
-          200: "#c5d0de",
-          300: "#9aabc4",
-          400: "#677fa3",
-          500: "#456089",
-          600: "#344c6f",
-          700: "#2a3c59",
-          800: "#1b2840",
-          900: "#0f1b2d",
-          950: "#08101d",
+          DEFAULT: "#1c1c1f",
+          50: "#f5f5f6",
+          100: "#e9e9eb",
+          200: "#d6d6d9",
+          300: "#b6b6bb",
+          400: "#8c8c92",
+          500: "#6e6e74",
+          600: "#54545a",
+          700: "#3c3c41",
+          800: "#2a2a2e",
+          900: "#1c1c1f",
+          950: "#141416",
         },
-        // Accent — warm amber/gold (Rose Bowl sunset, Craftsman brass)
+        // single accent — deep Monet pond teal (legacy `amber` name kept, remapped)
         amber: {
-          DEFAULT: "#d99232",
-          50: "#fdf8ef",
-          100: "#f9ecd2",
-          200: "#f2d59f",
-          300: "#ebbb6b",
-          400: "#e3a247",
-          500: "#d99232",
-          600: "#bd7222",
-          700: "#9c551f",
-          800: "#7f4420",
-          900: "#69391d",
+          DEFAULT: "#2f6f74",
+          50: "#eef4f4",
+          100: "#d7e6e6",
+          200: "#aaccce",
+          300: "#7fb1b3",
+          400: "#4f9296",
+          500: "#2f6f74",
+          600: "#285e62",
+          700: "#214d50",
+          800: "#1b3e41",
+          900: "#163133",
         },
-        // Secondary warm — terracotta / rose (Pasadena rose)
+        accent: {
+          DEFAULT: "#2f6f74",
+          soft: "#3a8a90",
+        },
+        // kept for error states only
         rose: {
           DEFAULT: "#b5523f",
           100: "#f6e2dd",
@@ -51,17 +64,12 @@ const config: Config = {
           500: "#b5523f",
           700: "#8a3a2c",
         },
-        // Canvas neutrals — warm off-white
-        canvas: {
-          DEFAULT: "#faf7f1",
-          soft: "#f4efe5",
-          muted: "#ece5d6",
-        },
       },
       fontFamily: {
-        serif: ["Fraunces", "Georgia", "Cambria", "Times New Roman", "serif"],
+        display: ["var(--font-serif)", "Didot", "Georgia", "serif"],
+        serif: ["var(--font-serif)", "Didot", "Georgia", "serif"],
         sans: [
-          "Inter",
+          "var(--font-body)",
           "ui-sans-serif",
           "system-ui",
           "-apple-system",
@@ -75,20 +83,36 @@ const config: Config = {
         prose: "68ch",
       },
       boxShadow: {
-        card: "0 1px 2px rgba(15,27,45,0.04), 0 8px 24px rgba(15,27,45,0.08)",
-        lift: "0 4px 12px rgba(15,27,45,0.08), 0 24px 48px rgba(15,27,45,0.12)",
+        // gallery: shadows are whisper-soft; structure comes from hairlines
+        card: "0 1px 2px rgba(20,20,22,0.03), 0 12px 32px -16px rgba(20,20,22,0.12)",
+        lift: "0 2px 6px rgba(20,20,22,0.05), 0 30px 60px -24px rgba(20,20,22,0.20)",
       },
       borderRadius: {
-        xl2: "1.25rem",
+        xl2: "0.5rem",
       },
       keyframes: {
-        "fade-up": {
-          "0%": { opacity: "0", transform: "translateY(12px)" },
+        "fade-rise": {
+          "0%": { opacity: "0", transform: "translateY(16px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        "ken-burns": {
+          "0%": { transform: "scale(1.02) translate3d(0,0,0)" },
+          "100%": { transform: "scale(1.05) translate3d(-0.8%,-0.8%,0)" },
+        },
+        nudge: {
+          "0%, 100%": { transform: "translateY(0)", opacity: "0.55" },
+          "50%": { transform: "translateY(7px)", opacity: "1" },
         },
       },
       animation: {
-        "fade-up": "fade-up 0.6s ease-out both",
+        "fade-rise": "fade-rise 0.9s cubic-bezier(0.16,1,0.3,1) both",
+        "fade-in": "fade-in 0.9s cubic-bezier(0.16,1,0.3,1) both",
+        "ken-burns": "ken-burns 24s ease-out both",
+        nudge: "nudge 1.9s ease-in-out infinite",
       },
     },
   },
