@@ -37,7 +37,7 @@ No need to reply. But if you try it and have a question, I'm here.
 Warmly,
 [your name]
 Pasadena AI Institute, hosted by Whistle Labs
-hello@pasadenaaiinstitute.com
+hello@whistleworkshop.com
 
 ---
 ---
@@ -69,4 +69,4 @@ And if now's still not the moment, no worries — I'll keep these useful and rar
 Warmly,
 [your name]
 Pasadena AI Institute, hosted by Whistle Labs
-hello@pasadenaaiinstitute.com
+hello@whistleworkshop.com

@@ -54,4 +54,4 @@ Questions before next week? Just reply. See you soon.
 Warmly,
 [your name]
 Pasadena AI Institute, hosted by Whistle Labs
-hello@pasadenaaiinstitute.com
+hello@whistleworkshop.com

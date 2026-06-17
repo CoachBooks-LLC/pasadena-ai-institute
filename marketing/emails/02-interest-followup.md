@@ -35,4 +35,4 @@ Looking forward to it.
 Warmly,
 [your name]
 Pasadena AI Institute, hosted by Whistle Labs
-hello@pasadenaaiinstitute.com
+hello@whistleworkshop.com

@@ -41,6 +41,6 @@ Either way, good to be in touch.
 Warmly,
 [your name]
 Pasadena AI Institute, hosted by Whistle Labs
-hello@pasadenaaiinstitute.com
+hello@whistleworkshop.com
 
 *P.S. If it's not for you but you know someone who'd love it, I'd be grateful for the intro.*

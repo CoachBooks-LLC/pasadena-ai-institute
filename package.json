@@ -1,8 +1,8 @@
 {
-  "name": "pasadena-ai-institute",
+  "name": "whistle-workshop",
   "version": "0.1.0",
   "private": true,
-  "description": "Pasadena AI Institute — 2-day in-person AI conference in Pasadena. Hosted by Whistle Labs.",
+  "description": "Pasadena AI Workshop — 2-day in-person AI workshop in Pasadena. Hosted by Whistle Labs.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -13,8 +13,6 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.40.0",
-    "lucide-react": "^1.20.0",
-    "motion": "^12.40.0",
     "next": "14.2.15",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

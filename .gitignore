@@ -34,3 +34,9 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# editor / AI tooling (kept out of the product repo)
+.cursor/
+.claude/
+.idea/
+.vscode/

@@ -1,7 +1,7 @@
-# Pasadena AI Institute
+# Pasadena AI Workshop
 
-> Go from **zero to one** with AI — a 2-day, in-person AI conference in Pasadena.
-> Hosted by **Whistle Labs**.
+> Go from **zero to one** with AI — a 2-day, in-person AI workshop in Pasadena.
+> Hosted by **Whistle Labs**. Lives at **whistleworkshop.com**.
 
 This repo contains the **entire company**: the marketing website (a Next.js
 funnel), the registration system (interest form + Stripe checkout), infographics,
@@ -59,7 +59,7 @@ to run the site.
 |---|---|---|
 | `NEXT_PUBLIC_SITE_URL` | Your live domain (for links, OG tags, Stripe redirects) | Defaults to `localhost` / the value in `lib/site.ts` |
 | `STRIPE_SECRET_KEY` | Enables real $995 checkout | "Reserve" button shows a friendly "apply instead" fallback |
-| `RESEND_API_KEY` + `LEAD_NOTIFY_EMAIL` | Emails you each interest-form lead | Leads are saved to `data/leads.json` and logged to the console |
+| `RESEND_API_KEY` + `LEAD_NOTIFY_EMAIL` | Emails you each interest-form lead | Locally, leads save to `data/leads.json` + console. **Required in production** — see note below |
 | `RESEND_FROM_EMAIL` | Verified sender for lead emails | Falls back to Resend's test sender |
 
 ### The two registration paths
@@ -79,13 +79,24 @@ checkout. The 2-day agenda, tracks, outcomes, and FAQ live in **`lib/content.ts`
 
 ---
 
-## Deploy (Vercel, recommended)
+## Deploy (Vercel)
+
+This is a single Next.js app — pages and the `/api/*` routes deploy together as
+static assets + serverless functions on Vercel. There is no separate backend.
 
 1. Push this repo to GitHub.
 2. Import it at [vercel.com/new](https://vercel.com/new) (framework auto-detected).
-3. Add your env vars in Vercel's project settings.
-4. Buy your domain (e.g. on GoDaddy) and point it at Vercel, then set
-   `NEXT_PUBLIC_SITE_URL` to that domain.
+3. Add your env vars in Vercel's project settings (see the table above).
+   **Set `RESEND_API_KEY` + `LEAD_NOTIFY_EMAIL`** so leads are captured (see note).
+4. In Vercel → Domains, add `whistleworkshop.com` and `www.whistleworkshop.com`.
+   In GoDaddy DNS, point the apex `A` record / `www` `CNAME` at the values Vercel
+   shows. Then set `NEXT_PUBLIC_SITE_URL=https://whistleworkshop.com`.
+
+> **Lead capture in production.** Vercel's filesystem is read-only and ephemeral,
+> so the local `data/leads.json` fallback does **not** persist there. Configure
+> Resend (`RESEND_API_KEY` + `LEAD_NOTIFY_EMAIL`) so each interest-form submission
+> is emailed to you. Without it, production submissions return an error instead of
+> being silently lost.
 
 The full, non-technical-friendly version of these steps is in
 [`marketing/LAUNCH-PLAYBOOK.md`](./marketing/LAUNCH-PLAYBOOK.md) → *Phase 0*.

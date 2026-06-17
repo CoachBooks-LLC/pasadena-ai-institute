@@ -10,9 +10,9 @@ export const site = {
   host: "Whistle Labs",
   hostUrl: "https://whistlelabs.ai",
   tagline: "Hosted by Whistle Labs",
-  // Swap this when the GoDaddy domain is purchased + pointed at Vercel.
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://pasadenaaiinstitute.com",
-  contactEmail: "hello@pasadenaaiinstitute.com",
+  // Live domain (GoDaddy) pointed at Vercel. Override per-env with NEXT_PUBLIC_SITE_URL.
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://whistleworkshop.com",
+  contactEmail: "hello@whistleworkshop.com",
   city: "Pasadena, California",
   region: "Greater Los Angeles & Southern California",
 
