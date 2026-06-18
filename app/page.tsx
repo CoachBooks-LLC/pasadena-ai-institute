@@ -25,7 +25,7 @@ export default function HomePage() {
           noScrim
         >
           <div className="container-x">
-            <div className="max-w-2xl animate-fade-in -mt-16 rounded-lg border border-white/10 bg-white/20 px-8 py-9 text-white shadow-xl backdrop-blur-xl sm:px-10 sm:py-11 lg:-ml-20">
+            <div className="max-w-2xl animate-fade-in -mt-16 rounded-lg border border-white/10 bg-white/20 px-8 py-9 text-white shadow-xl backdrop-blur-xl sm:px-10 sm:py-11 xl:-ml-20">
             <h1 className="font-serif text-[clamp(2.75rem,6.5vw,5rem)] font-normal leading-[1.05] tracking-[-0.025em] text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.45),0_1px_1px_rgba(0,0,0,0.35)]">
               Go from zero to one
               <br />
