@@ -3,10 +3,8 @@ import Link from "next/link";
 import { Section } from "@/components/Section";
 import { PageHero } from "@/components/PageHero";
 import { FAQAccordion } from "@/components/FAQAccordion";
-import { CTABand } from "@/components/CTA";
 import { art } from "@/lib/art";
 import { faqs } from "@/lib/content";
-import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "FAQ",
@@ -33,22 +31,17 @@ export default function FAQPage() {
               Still have a question?
             </h2>
             <p className="mx-auto mt-3 max-w-md text-ink-600">
-              We&rsquo;d love to hear from you. Apply for a seat, or email us
-              directly with anything you&rsquo;re wondering.
+              Apply for a seat and tell us what you&rsquo;re wondering. We read
+              every application and reply to each one.
             </p>
-            <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
+            <div className="mt-6 flex justify-center">
               <Link href="/register" className="btn-primary">
                 Apply for a seat
               </Link>
-              <a href={`mailto:${site.contactEmail}`} className="btn-outline">
-                {site.contactEmail}
-              </a>
             </div>
           </div>
         </div>
       </Section>
-
-      <CTABand />
     </>
   );
 }

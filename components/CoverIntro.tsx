@@ -76,7 +76,13 @@ export function CoverIntro() {
         >
           Learn AI.
           <br />
-          Right here in Pasadena.
+          Right here in
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/pasadena-wordmark.png"
+            alt="Pasadena"
+            className="mx-auto mt-3 block h-[0.8em] w-auto"
+          />
         </h1>
 
         <div className="pointer-events-auto mt-10">

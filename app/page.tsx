@@ -5,8 +5,8 @@ import { ApplicationTimeline } from "@/components/ApplicationTimeline";
 import { AgendaTimeline } from "@/components/AgendaTimeline";
 import { Reveal } from "@/components/Reveal";
 import { ArtPanel } from "@/components/ui/art-panel";
+import { ArtSection } from "@/components/ui/art-section";
 import { GlassButton } from "@/components/ui/apple-tahoe-liquid-glass-button";
-import { LiquidGlassCard } from "@/components/ui/liquid-weather-glass";
 import { art } from "@/lib/art";
 import { site } from "@/lib/site";
 import { tracks, outcomes } from "@/lib/content";
@@ -25,14 +25,7 @@ export default function HomePage() {
           noScrim
         >
           <div className="container-x">
-            <LiquidGlassCard
-            draggable={false}
-            blurIntensity="xl"
-            shadowIntensity="xs"
-            glowIntensity="none"
-            borderRadius="8px"
-            className="max-w-2xl animate-fade-in -mt-16 bg-white/8 px-8 py-9 text-white sm:px-10 sm:py-11 lg:-ml-20"
-          >
+            <div className="max-w-2xl animate-fade-in -mt-16 rounded-lg border border-white/10 bg-white/20 px-8 py-9 text-white shadow-xl backdrop-blur-xl sm:px-10 sm:py-11 lg:-ml-20">
             <h1 className="font-serif text-[clamp(2.75rem,6.5vw,5rem)] font-normal leading-[1.05] tracking-[-0.025em] text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.45),0_1px_1px_rgba(0,0,0,0.35)]">
               Go from zero to one
               <br />
@@ -69,7 +62,7 @@ export default function HomePage() {
               <span aria-hidden className="text-white/60">·</span>
               <span>Apply by {site.cohort.dates.applyByShort}</span>
             </div>
-            </LiquidGlassCard>
+            </div>
           </div>
         </ArtPanel>
 
@@ -105,22 +98,23 @@ export default function HomePage() {
         </Reveal>
       </Section>
 
-      {/* Two tracks */}
-      <Section className="border-t border-ink-100 bg-canvas-soft">
+      {/* Two tracks - white cards over Van Gogh */}
+      <ArtSection art={art.vanGoghFishing} className="border-y border-white/10">
         <Reveal>
           <SectionHeading
+            tone="light"
             title="Two ways in, one room"
             intro="Choose your path at the end of Day 1; both start from zero and end with something real."
           />
         </Reveal>
-        <div className="mt-12 grid gap-px bg-ink-100 sm:grid-cols-2">
+        <div className="mt-12 grid gap-px overflow-hidden rounded-lg bg-ink-100 shadow-xl sm:grid-cols-2">
           {tracks.map((t, i) => (
             <Reveal key={t.id} delay={i * 0.08}>
               <TrackCard track={t} />
             </Reveal>
           ))}
         </div>
-      </Section>
+      </ArtSection>
 
       {/* Outcomes */}
       <Section className="bg-canvas">
@@ -143,15 +137,15 @@ export default function HomePage() {
         </dl>
       </Section>
 
-      {/* Quote interlude - Van Gogh */}
-      <ArtPanel art={art.bedroom} height="band" scrim="full" position="center">
+      {/* Quote interlude - Monet, Cliff Walk at Pourville */}
+      <ArtPanel art={art.cliffPourville} height="band" scrim="full" position="center">
         <div className="container-x text-center">
           <blockquote className="mx-auto max-w-3xl">
             <p className="font-serif text-3xl font-normal italic leading-[1.2] tracking-tight text-white sm:text-4xl">
-              “The best way to predict the future is to invent it.”
+              “Artificial intelligence is the new electricity.”
             </p>
             <footer className="mt-5 text-sm font-medium uppercase tracking-[0.18em] text-white/65">
-              Alan Kay
+              Andrew Ng
             </footer>
           </blockquote>
         </div>
@@ -175,7 +169,7 @@ export default function HomePage() {
         <Reveal>
           <SectionHeading
             title="Claim one of ten seats"
-            intro="This is our founding cohort, the first time we're running it. Seats are earned by application, not payment, and we review on a rolling basis. The room is small on purpose."
+            intro="This is our founding cohort, the first time we're running it. Seats are earned by application, reviewed on a rolling basis. The room is small on purpose."
           />
         </Reveal>
         <Reveal delay={0.1} className="mt-12">
@@ -187,43 +181,6 @@ export default function HomePage() {
           </Link>
         </Reveal>
       </Section>
-
-      {/* Closing - Monet, Water Lily Pond (bookends the hero) */}
-      <ArtPanel
-        art={art.waterLilyPond}
-        height="tall"
-        scrim="left"
-        position="center"
-        kenBurns={false}
-        dim
-      >
-        <div className="container-x py-28">
-          <div className="max-w-xl">
-            <h2 className="font-serif text-4xl font-normal leading-[1.18] tracking-tight text-white sm:text-6xl">
-              Ten seats. One founding cohort.
-            </h2>
-            <p className="mt-6 max-w-md text-lg leading-relaxed text-white/90">
-              The first time we&rsquo;re running this, in Pasadena on{" "}
-              {site.cohort.dates.workshop}. Applications close{" "}
-              {site.cohort.dates.applyByShort}.
-            </p>
-            <div className="mt-9 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
-              <Link href="/register" aria-label="Apply for a seat">
-                <GlassButton size="lg" contentClassName="gap-2 text-white">
-                  Apply for a seat
-                  <span aria-hidden>→</span>
-                </GlassButton>
-              </Link>
-              <Link
-                href="/faq"
-                className="text-sm font-medium text-white/80 underline decoration-white/30 decoration-1 underline-offset-[6px] transition-colors hover:decoration-white"
-              >
-                How it works
-              </Link>
-            </div>
-          </div>
-        </div>
-      </ArtPanel>
     </>
   );
 }

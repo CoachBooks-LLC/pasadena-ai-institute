@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { LogoMark } from "./Logo";
+import { Logo } from "./Logo";
 import { nav, site } from "@/lib/site";
 
 export function Footer() {
@@ -7,17 +7,7 @@ export function Footer() {
     <footer className="border-t border-ink-200 bg-canvas">
       <div className="container-x grid gap-12 py-16 md:grid-cols-[1.6fr_1fr_1fr]">
         <div>
-          <div className="flex items-center gap-3">
-            <LogoMark className="h-10 w-10" />
-            <div className="leading-tight">
-              <div className="font-serif text-lg font-medium tracking-tight text-ink-900">
-                Pasadena <span className="italic">AI</span> Workshop
-              </div>
-              <div className="mt-1 text-[10px] uppercase tracking-[0.18em] text-ink-500">
-                Hosted by Whistle Labs
-              </div>
-            </div>
-          </div>
+          <Logo />
           <p className="mt-6 max-w-sm leading-relaxed text-ink-600">
             A two-day, in-person atelier in Pasadena that takes professionals from
             zero to one with AI, whether you&rsquo;re starting fresh or building a
@@ -56,14 +46,6 @@ export function Footer() {
               >
                 Apply for a Seat
               </Link>
-            </li>
-            <li>
-              <a
-                href={`mailto:${site.contactEmail}`}
-                className="text-sm text-ink-600 transition-colors hover:text-accent"
-              >
-                {site.contactEmail}
-              </a>
             </li>
             <li>
               <a

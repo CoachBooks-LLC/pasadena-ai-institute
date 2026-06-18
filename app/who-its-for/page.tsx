@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Section, SectionHeading } from "@/components/Section";
 import { PageHero } from "@/components/PageHero";
 import { TrackCard } from "@/components/TrackCard";
-import { CTABand } from "@/components/CTA";
+import { ArtSection } from "@/components/ui/art-section";
 import { Reveal } from "@/components/Reveal";
 import { art } from "@/lib/art";
 import { tracks } from "@/lib/content";
@@ -40,28 +40,11 @@ export default function WhoItsForPage() {
         eyebrow="For professionals, owners & executives"
         title="If you're ready to actually understand AI, you're in the right place"
         intro="We built this for professionals, owners, and executives, especially folks 35 to 60, across Pasadena and Southern California. You don't need to be technical. You just need to be curious."
-        artwork={art.parisRain}
+        artwork={art.cezanneMarseille}
       />
 
-      {/* Two tracks */}
-      <Section className="bg-canvas">
-        <Reveal>
-          <SectionHeading
-            title="Pick the path that fits where you are"
-            intro="You'll choose at the end of Day 1, and lean whichever way feels right as you go."
-          />
-        </Reveal>
-        <div className="mt-12 grid gap-px bg-ink-100 sm:grid-cols-2">
-          {tracks.map((t, i) => (
-            <Reveal key={t.id} delay={i * 0.08}>
-              <TrackCard track={t} />
-            </Reveal>
-          ))}
-        </div>
-      </Section>
-
-      {/* Personas */}
-      <Section className="border-t border-ink-100 bg-canvas-soft">
+      {/* Personas - kept on the gallery wall so two artworks never sit adjacent */}
+      <Section className="bg-canvas-soft">
         <Reveal>
           <SectionHeading title="People who thrive in the room" />
         </Reveal>
@@ -80,6 +63,24 @@ export default function WhoItsForPage() {
           ))}
         </dl>
       </Section>
+
+      {/* Two tracks - white cards over Monet */}
+      <ArtSection art={art.waterLilyPond} className="border-t border-ink-100">
+        <Reveal>
+          <SectionHeading
+            tone="light"
+            title="Pick the path that fits where you are"
+            intro="You'll choose at the end of Day 1, and lean whichever way feels right as you go."
+          />
+        </Reveal>
+        <div className="mt-12 grid gap-px overflow-hidden rounded-lg bg-ink-100 shadow-xl sm:grid-cols-2">
+          {tracks.map((t, i) => (
+            <Reveal key={t.id} delay={i * 0.08}>
+              <TrackCard track={t} />
+            </Reveal>
+          ))}
+        </div>
+      </ArtSection>
 
       {/* Not sure */}
       <Section className="bg-canvas">
@@ -103,8 +104,6 @@ export default function WhoItsForPage() {
           </div>
         </Reveal>
       </Section>
-
-      <CTABand />
     </>
   );
 }

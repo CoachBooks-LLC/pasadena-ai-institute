@@ -4,7 +4,6 @@ import { Section, SectionHeading } from "@/components/Section";
 import { PageHero } from "@/components/PageHero";
 import { AgendaTimeline } from "@/components/AgendaTimeline";
 import { ApplyCard } from "@/components/ApplyCard";
-import { CTABand } from "@/components/CTA";
 import { Reveal } from "@/components/Reveal";
 import { art } from "@/lib/art";
 import { site } from "@/lib/site";
@@ -151,22 +150,20 @@ export default function ConferencePage() {
               <div className="overflow-hidden rounded-[4px] border border-ink-200">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={art.parisRain.src}
-                  alt={art.parisRain.alt}
+                  src={art.wheatstacks.src}
+                  alt={art.wheatstacks.alt}
                   className="aspect-[4/5] w-full object-cover"
                 />
               </div>
               <figcaption className="mt-3 font-sans text-[0.8125rem] tracking-wide text-ink-500">
-                {art.parisRain.artist}, {art.parisRain.year}
+                {art.wheatstacks.artist}, {art.wheatstacks.year}
                 <span className="mx-1.5 opacity-50">·</span>
-                <span className="italic">{art.parisRain.title}</span>
+                <span className="italic">{art.wheatstacks.title}</span>
               </figcaption>
             </figure>
           </Reveal>
         </div>
       </Section>
-
-      <CTABand />
     </>
   );
 }

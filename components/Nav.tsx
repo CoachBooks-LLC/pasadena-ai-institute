@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Logo } from "./Logo";
-import { GlassButton } from "@/components/ui/apple-tahoe-liquid-glass-button";
 import { nav } from "@/lib/site";
 
 export function Nav() {
@@ -56,14 +55,16 @@ export function Nav() {
               </Link>
             );
           })}
-          <Link href="/register" aria-label="Apply for a seat">
-            <GlassButton
-              size="sm"
-              className="rounded-[4px] px-5 py-2.5"
-              contentClassName={solid ? "text-ink-900" : "text-white"}
-            >
-              Apply
-            </GlassButton>
+          <Link
+            href="/register"
+            aria-label="Apply for a seat"
+            className={`inline-flex items-center justify-center rounded-[4px] border px-5 py-2.5 text-sm font-medium shadow-lg backdrop-blur-xl transition-colors ${
+              solid
+                ? "border-ink-900/10 bg-ink-900/[0.06] text-ink-900 hover:bg-ink-900/10"
+                : "border-white/10 bg-white/20 text-white hover:bg-white/25"
+            }`}
+          >
+            Apply
           </Link>
         </nav>
 

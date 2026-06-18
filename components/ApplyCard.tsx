@@ -14,7 +14,7 @@ const includes = [
 
 export function ApplyCard() {
   return (
-    <div className="rounded-[4px] bg-ink-950 p-9 text-canvas sm:p-12">
+    <div className="rounded-lg bg-black p-9 text-canvas shadow-xl sm:p-12">
       <p className="eyebrow text-white/50">
         {site.cohort.label} · {site.cohort.season}
       </p>
@@ -26,8 +26,8 @@ export function ApplyCard() {
       </div>
       <p className="mt-3 text-sm leading-relaxed text-white/65">
         The first cohort, in person in Pasadena on {site.cohort.dates.workshop}.
-        Seats are earned by application first; accepted applicants can use
-        checkout codes for discounts or scholarships.
+        Seats are earned by application first; accepted applicants reserve to
+        lock in their spot.
       </p>
 
       <ul className="mt-8 grid gap-x-8 gap-y-3.5 sm:grid-cols-2">

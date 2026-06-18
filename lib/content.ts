@@ -218,8 +218,8 @@ export const faqs: Faq[] = [
     a: "Short and human, not a gauntlet. You share a link to your resume or LinkedIn and answer a couple of quick questions about what you want to build or learn. We read every application as it comes in and reply by Monday, June 29. If it's not this time, you can apply for the next cohort.",
   },
   {
-    q: "Is there a cost?",
-    a: "The application is free. Accepted applicants reserve their seat through Stripe. A standard seat is $1,000, and Stripe codes can reduce checkout to $500 or $0 for scholarship seats. A seat includes two full days of hands-on instruction, all materials, working lunches both days, the full software setup on your own machine, and the alumni community.",
+    q: "How does a seat work?",
+    a: "Applying costs nothing. We read every application, and if it's a fit, you reserve your seat to lock it in. A seat covers everything: two full days of hands-on instruction, all materials, working lunches both days, the full software setup on your own machine, and the founding alumni community.",
   },
   {
     q: "Why only ten seats?",

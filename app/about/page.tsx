@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Section, SectionHeading } from "@/components/Section";
 import { PageHero } from "@/components/PageHero";
-import { CTABand } from "@/components/CTA";
 import { Reveal } from "@/components/Reveal";
 import { art } from "@/lib/art";
 import { site } from "@/lib/site";
@@ -176,8 +175,6 @@ export default function AboutPage() {
           ))}
         </dl>
       </Section>
-
-      <CTABand />
     </>
   );
 }

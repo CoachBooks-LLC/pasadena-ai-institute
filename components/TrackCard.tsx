@@ -3,7 +3,7 @@ import type { Track } from "@/lib/content";
 
 export function TrackCard({ track }: { track: Track }) {
   return (
-    <div className="flex h-full flex-col bg-canvas p-8 sm:p-10">
+    <div className="flex h-full flex-col bg-canvas p-8 [text-shadow:none] sm:p-10">
       <p className="eyebrow text-ink-500">{track.eyebrow}</p>
       <h3 className="mt-4 font-serif text-3xl font-normal tracking-tight text-ink-900">
         {track.title}

@@ -12,7 +12,6 @@ export const site = {
   tagline: "Hosted by Whistle Labs",
   // Live domain (GoDaddy) pointed at Vercel. Override per-env with NEXT_PUBLIC_SITE_URL.
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://whistleworkshop.com",
-  contactEmail: "hello@whistleworkshop.com",
   city: "Pasadena, California",
   region: "Greater Los Angeles & Southern California",
 
@@ -33,13 +32,12 @@ export const site = {
     },
   },
 
-  // Application is free. Accepted applicants can reserve with Stripe; discounts
-  // and scholarships are handled with Stripe promotion codes.
+  // Applying costs nothing. Accepted applicants reserve their seat with Stripe.
   price: {
-    amountUsd: 1000,
-    display: "$1,000",
+    amountUsd: 500,
+    display: "$500",
     currency: "usd",
-    cents: 100000,
+    cents: 50000,
     label: "All-inclusive 2-day seat",
   },
 

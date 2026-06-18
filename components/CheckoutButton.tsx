@@ -43,8 +43,7 @@ export function CheckoutButton() {
         {status === "loading" ? "Opening checkout..." : `Checkout - ${site.price.display}`}
       </button>
       <p className="mx-auto mt-2 max-w-[42ch] text-center text-xs leading-relaxed text-ink-500">
-        Discount and scholarship codes can be entered on the Stripe checkout
-        page.
+        Secure checkout through Stripe.
       </p>
       {status === "error" && (
         <p className="mt-3 rounded-[3px] bg-rose-100 px-4 py-3 text-sm text-rose-700">

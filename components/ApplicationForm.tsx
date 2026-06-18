@@ -217,8 +217,8 @@ export function ApplicationForm() {
         {status === "submitting" ? "Submitting…" : "Submit application"}
       </button>
       <p className="mx-auto max-w-[52ch] text-center text-xs text-ink-500">
-        No payment with this application. If accepted, you&rsquo;ll receive
-        checkout instructions and any discount or scholarship code.
+        No payment to apply. If you&rsquo;re accepted, we&rsquo;ll send a link
+        to reserve your seat.
       </p>
     </form>
   );

@@ -5,7 +5,7 @@ export const runtime = "nodejs";
 
 /**
  * Creates a Stripe Checkout Session via the Stripe REST API (no SDK dependency).
- * Price is built inline at $1,000 - no Stripe dashboard product needed.
+ * Price is built inline from site.price.cents - no Stripe dashboard product needed.
  * If STRIPE_SECRET_KEY is unset, returns 503 so the UI can show a graceful
  * "reserve by application" fallback instead of breaking.
  */
