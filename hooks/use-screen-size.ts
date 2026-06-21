@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 
 // Define the possible screen sizes as a const array for better type inference
 const SCREEN_SIZES = ["xs", "sm", "md", "lg", "xl", "2xl"] as const
@@ -55,22 +55,20 @@ const useScreenSize = (): ComparableScreenSize => {
   const [screenSize, setScreenSize] = useState<ScreenSize>("xs")
 
   useEffect(() => {
-    const handleResize = () => {
+    const getSize = (): ScreenSize => {
       const width = window.innerWidth
 
-      if (width >= 1536) {
-        setScreenSize("2xl")
-      } else if (width >= 1280) {
-        setScreenSize("xl")
-      } else if (width >= 1024) {
-        setScreenSize("lg")
-      } else if (width >= 768) {
-        setScreenSize("md")
-      } else if (width >= 640) {
-        setScreenSize("sm")
-      } else {
-        setScreenSize("xs")
-      }
+      if (width >= 1536) return "2xl"
+      if (width >= 1280) return "xl"
+      if (width >= 1024) return "lg"
+      if (width >= 768) return "md"
+      if (width >= 640) return "sm"
+      return "xs"
+    }
+
+    const handleResize = () => {
+      const nextSize = getSize()
+      setScreenSize((current) => (current === nextSize ? current : nextSize))
     }
 
     handleResize()
@@ -78,7 +76,7 @@ const useScreenSize = (): ComparableScreenSize => {
     return () => window.removeEventListener("resize", handleResize)
   }, [])
 
-  return new ComparableScreenSize(screenSize)
+  return useMemo(() => new ComparableScreenSize(screenSize), [screenSize])
 }
 
 export { useScreenSize }

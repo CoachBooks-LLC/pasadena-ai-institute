@@ -12,10 +12,24 @@ export function Nav() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    let frame = 0;
+    const updateScrolled = () => {
+      frame = 0;
+      const nextScrolled = window.scrollY > 24;
+      setScrolled((current) =>
+        current === nextScrolled ? current : nextScrolled
+      );
+    };
+    const onScroll = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(updateScrolled);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
   }, []);
 
   // Over the art hero (top of every page) the bar is transparent with light

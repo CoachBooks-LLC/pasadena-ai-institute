@@ -15,7 +15,7 @@ export function PageHero({
   artwork?: Artwork;
 }) {
   return (
-    <ArtPanel art={artwork} height="tall" scrim="left">
+    <ArtPanel art={artwork} height="tall" scrim="left" priority>
       <div className="container-x py-24">
         <GlassCard
           tone="light"

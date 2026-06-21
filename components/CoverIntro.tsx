@@ -16,6 +16,41 @@ export function CoverIntro() {
   const screenSize = useScreenSize();
   const [dismissed, setDismissed] = useState(false);
   const [leaving, setLeaving] = useState(false);
+  const [effectsEnabled, setEffectsEnabled] = useState(false);
+  const [trailActive, setTrailActive] = useState(false);
+
+  useEffect(() => {
+    const root = document.documentElement;
+
+    if (dismissed) {
+      root.removeAttribute("data-cover-intro-active");
+    } else {
+      root.setAttribute("data-cover-intro-active", "true");
+    }
+
+    window.dispatchEvent(new Event("cover-intro-visibility"));
+
+    return () => {
+      root.removeAttribute("data-cover-intro-active");
+      window.dispatchEvent(new Event("cover-intro-visibility"));
+    };
+  }, [dismissed]);
+
+  useEffect(() => {
+    const hover = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updateEffects = () =>
+      setEffectsEnabled(hover.matches && !reduceMotion.matches);
+
+    updateEffects();
+    hover.addEventListener("change", updateEffects);
+    reduceMotion.addEventListener("change", updateEffects);
+
+    return () => {
+      hover.removeEventListener("change", updateEffects);
+      reduceMotion.removeEventListener("change", updateEffects);
+    };
+  }, []);
 
   // Lock background scroll while the cover is up.
   useEffect(() => {
@@ -37,6 +72,9 @@ export function CoverIntro() {
       role="dialog"
       aria-modal="true"
       aria-label="Welcome to the Pasadena AI Workshop"
+      onPointerMove={() => {
+        if (effectsEnabled && !trailActive) setTrailActive(true);
+      }}
       className={`fixed inset-0 z-[100] overflow-hidden bg-black transition-opacity duration-700 ease-in-out ${
         leaving ? "opacity-0" : "opacity-100"
       }`}
@@ -51,18 +89,22 @@ export function CoverIntro() {
       />
 
       {/* gooey pixel trail (follows the cursor) */}
-      <GooeyFilter id="gooey-filter-pixel-trail" strength={5} />
-      <div
-        className="absolute inset-0 z-0"
-        style={{ filter: "url(#gooey-filter-pixel-trail)" }}
-      >
-        <PixelTrail
-          pixelSize={screenSize.lessThan("md") ? 24 : 32}
-          fadeDuration={0}
-          delay={500}
-          pixelClassName="bg-white"
-        />
-      </div>
+      {effectsEnabled && trailActive && (
+        <>
+          <GooeyFilter id="gooey-filter-pixel-trail" strength={5} />
+          <div
+            className="absolute inset-0 z-0"
+            style={{ filter: "url(#gooey-filter-pixel-trail)" }}
+          >
+            <PixelTrail
+              pixelSize={screenSize.lessThan("md") ? 24 : 32}
+              fadeDuration={0}
+              delay={500}
+              pixelClassName="bg-white"
+            />
+          </div>
+        </>
+      )}
 
       {/* foreground: just a question + a button */}
       <div

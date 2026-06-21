@@ -1,7 +1,6 @@
 // @ts-nocheck
 'use client';
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import {cn} from "@/lib/utils"
 
 interface LiquidGlassCardProps {
@@ -45,13 +44,6 @@ export const LiquidGlassCard = ({
     setIsExpanded(!isExpanded);
   };
 
-  const blurClasses = {
-    sm: 'backdrop-blur-sm',
-    md: 'backdrop-blur-md',
-    lg: 'backdrop-blur-lg',
-    xl: 'backdrop-blur-xl',
-  };
-
   // Explicit blur radii (px) so the frost is strong and unambiguous across
   // browsers — applied inline with a -webkit- prefix on the bend layer.
   const blurPx = {
@@ -83,97 +75,21 @@ export const LiquidGlassCard = ({
       '0 4px 4px rgba(0, 0, 0, 0.15), 0 0 12px rgba(0, 0, 0, 0.08), 0 0 60px rgba(255, 255, 255, 0.3)',
   };
 
-  const containerVariants = expandable
-    ? {
-        collapsed: {
-          width: width || 'auto',
-          height: height || 'auto',
-          transition: {
-            duration: 0.4,
-            ease: [0.5, 1.5, 0.5, 1],
-          },
-        },
-        expanded: {
-          width: expandedWidth || 'auto',
-          height: expandedHeight || 'auto',
-          transition: {
-            duration: 0.4,
-            ease: [0.5, 1.5, 0.5, 1],
-          },
-        },
-      }
-    : {};
-
-  const MotionComponent = draggable || expandable ? motion.div : 'div';
-
-  const motionProps =
-    draggable || expandable
-      ? {
-          variants: expandable ? containerVariants : undefined,
-          animate: expandable
-            ? isExpanded
-              ? 'expanded'
-              : 'collapsed'
-            : undefined,
-          onClick: expandable ? handleToggleExpansion : undefined,
-          drag: draggable,
-          dragConstraints: draggable
-            ? { left: 0, right: 0, top: 0, bottom: 0 }
-            : undefined,
-          dragElastic: draggable ? 0.3 : undefined,
-          dragTransition: draggable
-            ? {
-                bounceStiffness: 300,
-                bounceDamping: 10,
-                power: 0.3,
-              }
-            : undefined,
-          whileDrag: draggable ? { scale: 1.02 } : undefined,
-          whileHover: { scale: 1.01 },
-          whileTap: { scale: 0.98 },
-        }
-      : {};
-
   return (
-    <>
-      {/* Hidden SVG Filter */}
-      <svg className='hidden'>
-        <defs>
-          <filter
-            id='glass-blur'
-            x='0'
-            y='0'
-            width='100%'
-            height='100%'
-            filterUnits='objectBoundingBox'
-          >
-            <feTurbulence
-              type='fractalNoise'
-              baseFrequency='0.003 0.007'
-              numOctaves='1'
-              result='turbulence'
-            />
-            <feDisplacementMap
-              in='SourceGraphic'
-              in2='turbulence'
-              scale='200'
-              xChannelSelector='R'
-              yChannelSelector='G'
-            />
-          </filter>
-        </defs>
-      </svg>
-      <MotionComponent
+      <div
         className={cn(
           `relative ${draggable ? 'cursor-grab active:cursor-grabbing' : ''} ${expandable ? 'cursor-pointer' : ''}`,
           className
         )}
         style={{
           borderRadius,
-          ...(width && !expandable && { width }),
-          ...(height && !expandable && { height }),
+          width: expandable && isExpanded ? expandedWidth || width : width,
+          height: expandable && isExpanded ? expandedHeight || height : height,
+          transition: expandable
+            ? 'width 400ms cubic-bezier(0.5, 1.5, 0.5, 1), height 400ms cubic-bezier(0.5, 1.5, 0.5, 1)'
+            : undefined,
         }}
-        {...motionProps}
+        onClick={expandable ? handleToggleExpansion : undefined}
         {...props}
       >
         {/* Bend Layer (Backdrop blur).
@@ -214,7 +130,6 @@ export const LiquidGlassCard = ({
 
         {/* Content */}
         <div className={cn('relative z-30')}>{children}</div>
-      </MotionComponent>
-    </>
+      </div>
   );
 };

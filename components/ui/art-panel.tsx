@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { VideoBackdrop } from "@/components/ui/video-backdrop";
 
 export type Artwork = {
   src: string;
@@ -27,6 +28,7 @@ export function ArtPanel({
   scrollCue = false,
   video,
   noScrim = false,
+  priority,
 }: {
   art: Artwork;
   children?: ReactNode;
@@ -41,12 +43,15 @@ export function ArtPanel({
   video?: string;
   /** Drop the darkening overlays so the artwork/video shows fully clean. */
   noScrim?: boolean;
+  /** Prioritize above-the-fold media. Offscreen panels should stay lazy. */
+  priority?: boolean;
 }) {
   const heights = {
     hero: "min-h-[100svh]",
     tall: "min-h-[70vh]",
     band: "min-h-[26rem]",
   };
+  const prioritizeMedia = priority ?? (height === "hero");
 
   const scrims = {
     left: "bg-gradient-to-r from-ink-950/97 via-ink-950/88 via-[58%] to-ink-950/35",
@@ -63,17 +68,12 @@ export function ArtPanel({
       )}
     >
       {video ? (
-        <video
-          className="absolute inset-0 h-full w-full object-cover"
-          style={{ objectPosition: position }}
+        <VideoBackdrop
           src={video}
           poster={art.src}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          aria-label={art.alt}
+          preload={prioritizeMedia ? "auto" : "metadata"}
+          position={position}
+          label={art.alt}
         />
       ) : (
         /* eslint-disable-next-line @next/next/no-img-element */
@@ -85,6 +85,8 @@ export function ArtPanel({
             kenBurns && "motion-safe:animate-ken-burns"
           )}
           style={{ objectPosition: position }}
+          loading={prioritizeMedia ? "eager" : "lazy"}
+          decoding={prioritizeMedia ? "sync" : "async"}
         />
       )}
       {/* darkening overlays for text legibility (skipped when noScrim) */}

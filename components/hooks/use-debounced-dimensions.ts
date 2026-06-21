@@ -17,11 +17,16 @@ export function useDimensions(
 
   useEffect(() => {
     let timeoutId: ReturnType<typeof setTimeout>
+    let frameId: number | null = null
 
     const updateDimensions = () => {
       if (ref.current) {
         const { width, height } = ref.current.getBoundingClientRect()
-        setDimensions({ width, height })
+        setDimensions((current) =>
+          current.width === width && current.height === height
+            ? current
+            : { width, height }
+        )
       }
     }
 
@@ -31,13 +36,25 @@ export function useDimensions(
     }
 
     // Initial measurement
-    updateDimensions()
+    frameId = window.requestAnimationFrame(updateDimensions)
+
+    if (typeof ResizeObserver !== "undefined" && ref.current) {
+      const observer = new ResizeObserver(debouncedUpdateDimensions)
+      observer.observe(ref.current)
+
+      return () => {
+        observer.disconnect()
+        clearTimeout(timeoutId)
+        if (frameId !== null) window.cancelAnimationFrame(frameId)
+      }
+    }
 
     window.addEventListener("resize", debouncedUpdateDimensions)
 
     return () => {
       window.removeEventListener("resize", debouncedUpdateDimensions)
       clearTimeout(timeoutId)
+      if (frameId !== null) window.cancelAnimationFrame(frameId)
     }
   }, [ref])
 
