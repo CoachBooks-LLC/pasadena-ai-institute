@@ -11,6 +11,7 @@ import {
   validateApplication,
   type ApplicationInput,
 } from "@/lib/applications";
+import { appendLeadToSheet } from "@/lib/sheets";
 
 export const runtime = "nodejs";
 
@@ -89,17 +90,19 @@ export async function POST(req: NextRequest) {
     console.error("[interest] could not write leads file:", err);
   }
 
-  const emailed = await notifyByEmail(
-    lead,
-    input.resume
-      ? {
-          filename: input.resume.originalName || "resume",
-          base64: input.resume.buffer.toString("base64"),
-        }
-      : undefined,
-  );
+  const resumePayload = input.resume
+    ? {
+        filename: input.resume.originalName || "resume",
+        base64: input.resume.buffer.toString("base64"),
+      }
+    : undefined;
 
-  if (!savedLead && !emailed) {
+  const [emailed, loggedToSheet] = await Promise.all([
+    notifyByEmail(lead, resumePayload),
+    appendLeadToSheet(lead, resumePayload),
+  ]);
+
+  if (!savedLead && !emailed && !loggedToSheet) {
     return NextResponse.json(
       {
         error:
@@ -109,7 +112,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  if (!emailed) {
+  if (!emailed && !loggedToSheet) {
     console.log("[interest] New application:", JSON.stringify(lead, null, 2));
   }
 
