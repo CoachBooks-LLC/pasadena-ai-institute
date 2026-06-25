@@ -1,5 +1,5 @@
 /**
- * Shared content data: the two tracks, the 2-day agenda, outcomes, the
+ * Shared content data: the two tracks, the agenda, outcomes, the
  * toolkit, and FAQs. Centralized so pages, infographics captions, and
  * marketing stay in sync.
  */
@@ -19,7 +19,7 @@ export const tracks: Track[] = [
     eyebrow: "Track 1 · Start from scratch",
     title: "Zero Experience",
     blurb:
-      "You've never really used AI, or you've poked at ChatGPT and want to actually get it. Two days from \"what is this?\" to confident, daily AI user.",
+      "You've never really used AI, or you've poked at ChatGPT and want to actually get it. One day from \"what is this?\" to confident, daily AI user.",
     forYou: [
       "You've never used AI tools in your work (or barely have)",
       "You keep hearing \"AI\" everywhere and don't want to be left behind",
@@ -49,7 +49,7 @@ export const tracks: Track[] = [
     outcomes: [
       "Cursor + Claude installed and configured on your own machine",
       "Learn vibe coding: building software by describing what you want",
-      "Go from idea to working prototype during the two days",
+      "Go from idea to working prototype in a single day",
       "Set up custom AI workflows and agents tailored to your idea",
       "Leave with a project you can keep building and a path forward",
     ],
@@ -61,8 +61,8 @@ export type AgendaDay = { day: string; theme: string; items: AgendaItem[] };
 
 export const agenda: AgendaDay[] = [
   {
-    day: "Day 1",
-    theme: "Foundations & Fluency: get set up, get confident",
+    day: "The Day",
+    theme: "Foundations in the morning. Build something real in the afternoon.",
     items: [
       {
         time: "9:00",
@@ -89,59 +89,18 @@ export const agenda: AgendaDay[] = [
       },
       {
         time: "1:30",
-        title: "AI for your daily work",
+        title: "Track split: choose your path",
         detail:
-          "Email, research, documents, analysis, planning. Build workflows around what you actually do.",
+          "Track 1 goes deep on AI for your daily work. Track 2 scopes your idea and sets up Cursor + Claude to start building.",
       },
       {
-        time: "3:00",
-        title: "Meet AI agents",
+        time: "2:30",
+        title: "AI agents & custom workflows",
         detail:
-          "What agents are, in plain English, and how they go beyond chat to actually do work for you.",
+          "What agents are, how they go beyond chat, and how to automate the repetitive parts of your work or product.",
       },
       {
-        time: "4:30",
-        title: "Track split & day-2 prep",
-        detail:
-          "Choose your path: deepen fluency, or set up to build your idea tomorrow.",
-      },
-    ],
-  },
-  {
-    day: "Day 2",
-    theme: "Zero to One: build something real",
-    items: [
-      {
-        time: "9:00",
-        title: "Your project, scoped",
-        detail:
-          "Turn your goal or idea into a concrete, achievable plan for the day.",
-      },
-      {
-        time: "9:45",
-        title: "Set up to build (Track 2)",
-        detail:
-          "Install and configure Cursor + Claude. Your personal AI development environment, ready to go.",
-      },
-      {
-        time: "11:00",
-        title: "Vibe coding, hands-on",
-        detail:
-          "Build software by describing what you want. Watch your idea become a working prototype.",
-      },
-      {
-        time: "12:30",
-        title: "Working lunch (included)",
-        detail: "Demos, troubleshooting, and idea-sharing.",
-      },
-      {
-        time: "1:30",
-        title: "Custom workflows & agents",
-        detail:
-          "Automate the repetitive parts of your work or product with tailored AI workflows.",
-      },
-      {
-        time: "3:00",
+        time: "3:30",
         title: "Build time with experts on call",
         detail:
           "Dedicated hands-on time. Our team works the room so you're never stuck.",
@@ -207,19 +166,19 @@ export const faqs: Faq[] = [
   },
   {
     q: "What's the difference between the two tracks?",
-    a: "Track 1 (Zero Experience) is for getting confident and fluent with AI from scratch. Track 2 (I Have an Idea) is for people who want to build something: we set up Cursor and Claude and get you from idea to working prototype. You choose at the end of Day 1, and you can lean either way.",
+    a: "Track 1 (Zero Experience) is for getting confident and fluent with AI from scratch. Track 2 (I Have an Idea) is for people who want to build something: we set up Cursor and Claude and get you from idea to working prototype. You choose after lunch, and you can lean either way.",
   },
   {
     q: "When and where is it?",
-    a: "The founding cohort runs July 11-12, 2026, in person in Pasadena, California. Applications are reviewed on a rolling basis and close Friday, June 26; we email every applicant a decision by Monday, June 29. The workshop is in Pasadena, and we send the exact venue to applicants once they're accepted.",
+    a: "The founding cohort runs July 11, 2026, in person in Pasadena, California. Applications are reviewed on a rolling basis and close Wednesday, July 1; you'll hear from us in July. The workshop is in Pasadena, and we send the exact venue to applicants once they're accepted.",
   },
   {
     q: "How does the application work?",
-    a: "Short and human, not a gauntlet. You share a link to your resume or LinkedIn and answer a couple of quick questions about what you want to build or learn. We read every application as it comes in and reply by Monday, June 29. If it's not this time, you can apply for the next cohort.",
+    a: "Short and human, not a gauntlet. You share a link to your resume or LinkedIn and answer a couple of quick questions about what you want to build or learn. We read every application as it comes in and get back to you in July. If it's not this time, you can apply for the next cohort.",
   },
   {
     q: "How does a seat work?",
-    a: "Applying costs nothing. We read every application, and if it's a fit, you reserve your seat to lock it in. A seat covers everything: two full days of hands-on instruction, all materials, working lunches both days, the full software setup on your own machine, and the founding alumni community.",
+    a: "Applying costs nothing. We read every application, and if it's a fit, you reserve your seat to lock it in. A seat covers everything: one full day of hands-on instruction, all materials, working lunch included, the full software setup on your own machine, and the founding alumni community.",
   },
   {
     q: "Why only ten seats?",

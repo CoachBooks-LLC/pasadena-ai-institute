@@ -32,7 +32,7 @@ export default function HomePage() {
               with AI.
             </h1>
             <p className="mt-8 max-w-xl text-lg leading-relaxed text-white [text-shadow:0_1px_4px_rgba(0,0,0,0.55)]">
-              A two-day, in-person atelier in Pasadena for executives and
+              A one-day, in-person atelier in Pasadena for executives and
               business owners. Come knowing nothing, or bring an idea. Leave
               having made something real. The founding cohort is just ten seats,
               by application.
@@ -48,7 +48,7 @@ export default function HomePage() {
                 href="/conference"
                 className="text-sm font-medium text-white underline decoration-white/50 decoration-1 underline-offset-[6px] [text-shadow:0_1px_4px_rgba(0,0,0,0.55)] transition-colors hover:decoration-white"
               >
-                See the two days
+                See the full day
               </Link>
             </div>
             <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white [text-shadow:0_1px_4px_rgba(0,0,0,0.55)]">
@@ -85,7 +85,7 @@ export default function HomePage() {
               hard to know what&rsquo;s genuinely useful versus pure hype.
             </p>
             <p>
-              So we built the opposite: two days, in person, in a small group,
+              So we built the opposite: one day, in person, in a small group,
               where we sit with you until it clicks, and you walk out with
               something you actually made.
             </p>
@@ -104,7 +104,7 @@ export default function HomePage() {
           <SectionHeading
             tone="light"
             title="Two ways in, one room"
-            intro="Choose your path at the end of Day 1; both start from zero and end with something real."
+            intro="Choose your path after lunch; both start from zero and end with something real."
           />
         </Reveal>
         <div className="mt-12 grid gap-px overflow-hidden rounded-lg bg-ink-100 shadow-xl sm:grid-cols-2">
@@ -156,7 +156,7 @@ export default function HomePage() {
         <Reveal>
           <SectionHeading
             title="A clear, hour-by-hour path"
-            intro="Foundations and fluency on Day 1. Build something real on Day 2. Working lunches and expert help throughout."
+            intro="Foundations and fluency in the morning. Build something real in the afternoon. Working lunch and expert help throughout."
           />
         </Reveal>
         <Reveal delay={0.1} className="mt-12">

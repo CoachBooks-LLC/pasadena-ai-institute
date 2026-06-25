@@ -12,14 +12,14 @@ import { toolkit } from "@/lib/content";
 export const metadata: Metadata = {
   title: "The Workshop",
   description:
-    "Two days, in person in Pasadena. The full curriculum: get set up, get fluent, then build something real with AI. Hosted by Whistle Labs.",
+    "One day, in person in Pasadena. The full curriculum: get set up, get fluent, then build something real with AI. Hosted by Whistle Labs.",
 };
 
 const included = [
-  "Two full days of hands-on, in-person instruction",
+  "One full day of hands-on, in-person instruction",
   "A small cohort with real, personal attention",
   "Complete software setup on your own laptop",
-  "Working lunches both days",
+  "Working lunch included",
   "All materials, templates, and resources",
   "Live build time with experts working the room",
   "A personalized next-steps plan",
@@ -38,7 +38,7 @@ export default function ConferencePage() {
       <PageHero
         eyebrow={`${site.cohort.label} · ${site.cohort.season}`}
         title="Two days that change how you work"
-        intro="Day 1 gets you set up and genuinely fluent with AI. Day 2 you build something real: a workflow for your work, or a prototype of your idea. Here's exactly how it goes."
+        intro="The morning gets you set up and genuinely fluent with AI. The afternoon you build something real: a workflow for your work, or a prototype of your idea. Here's exactly how it goes."
         artwork={art.seuratBathers}
       />
 
@@ -58,7 +58,7 @@ export default function ConferencePage() {
               </p>
               <p>
                 We start at absolute zero, no experience needed, and by the end
-                of Day 2 you&rsquo;ll have built something you can keep using and
+                of the day you&rsquo;ll have built something you can keep using and
                 growing.
               </p>
             </div>
@@ -108,7 +108,7 @@ export default function ConferencePage() {
       <Section id="agenda" className="border-t border-ink-100 bg-canvas-soft">
         <Reveal>
           <SectionHeading
-            title="The full two-day agenda"
+            title="The full agenda"
             intro="A clear path from foundations to building. Times are a guide; we move at the room's pace and stay until it clicks."
           />
         </Reveal>

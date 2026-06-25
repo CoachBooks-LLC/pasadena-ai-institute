@@ -120,6 +120,51 @@ export async function saveLead(lead: Lead) {
   });
 }
 
+export async function sendApplicantConfirmation(lead: Lead) {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) return false;
+
+  const from = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
+
+  const text = [
+    `Hi ${lead.name},`,
+    "",
+    "Thank you for applying to the Pasadena AI Workshop founding cohort.",
+    "",
+    "We read every application personally and review on a rolling basis. You'll hear from us in July.",
+    "",
+    "In the meantime, feel free to reach out to us at hello@whistlelabs.ai with any questions.",
+    "",
+    "— The Whistle Labs Team",
+  ].join("\n");
+
+  try {
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: `Pasadena AI Workshop <${from}>`,
+        to: [lead.email],
+        subject: "We received your application — Pasadena AI Workshop",
+        text,
+      }),
+    });
+
+    if (!res.ok) {
+      console.error("[interest] applicant confirmation error:", await res.text());
+      return false;
+    }
+
+    return true;
+  } catch (err) {
+    console.error("[interest] applicant confirmation failed:", err);
+    return false;
+  }
+}
+
 export async function notifyByEmail(
   lead: Lead,
   resume?: { filename: string; base64: string },

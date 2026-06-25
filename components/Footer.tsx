@@ -9,7 +9,7 @@ export function Footer() {
         <div>
           <Logo />
           <p className="mt-6 max-w-sm leading-relaxed text-ink-600">
-            A two-day, in-person atelier in Pasadena that takes professionals from
+            A one-day, in-person atelier in Pasadena that takes professionals from
             zero to one with AI, whether you&rsquo;re starting fresh or building a
             real idea.
           </p>

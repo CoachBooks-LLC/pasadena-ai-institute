@@ -21,12 +21,12 @@ export const site = {
     season: "July 2026",
     location: "Pasadena, CA",
     seats: 10,
-    durationDays: 2,
+    durationDays: 1,
     dates: {
-      workshop: "July 11-12, 2026",
-      workshopShort: "Jul 11-12",
-      applyBy: "Friday, June 26, 2026",
-      applyByShort: "Fri, Jun 26",
+      workshop: "July 11, 2026",
+      workshopShort: "Jul 11",
+      applyBy: "Wednesday, July 1, 2026",
+      applyByShort: "Wed, Jul 1",
       decisionsBy: "Monday, June 29, 2026",
       decisionsByShort: "Mon, Jun 29",
     },
@@ -38,11 +38,11 @@ export const site = {
     display: "$500",
     currency: "usd",
     cents: 50000,
-    label: "All-inclusive 2-day seat",
+    label: "All-inclusive 1-day seat",
   },
 
   description:
-    "A 2-day, in-person AI workshop in Pasadena that takes professionals from zero to one with AI, whether you're starting from scratch or building a real idea. Hosted by Whistle Labs, a Pasadena-based studio.",
+    "A 1-day, in-person AI workshop in Pasadena that takes professionals from zero to one with AI, whether you're starting from scratch or building a real idea. Hosted by Whistle Labs, a Pasadena-based studio.",
 
   social: {
     linkedin: "https://www.linkedin.com/company/whistle-labs",

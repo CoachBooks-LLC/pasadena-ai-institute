@@ -63,7 +63,7 @@ const values = [
   },
   {
     title: "Local and personal",
-    body: "Small cohorts, real attention, and a community that lasts beyond the two days.",
+    body: "Small cohorts, real attention, and a community that lasts beyond the day.",
   },
 ];
 

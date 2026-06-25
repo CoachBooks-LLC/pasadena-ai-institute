@@ -27,7 +27,7 @@ const reasons = [
   },
   {
     title: "A growing community",
-    body: "Every cohort joins an alumni network of local people learning and building with AI, with momentum that lasts past the two days.",
+    body: "Every cohort joins an alumni network of local people learning and building with AI, with momentum that lasts past the day.",
   },
 ];
 

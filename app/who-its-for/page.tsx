@@ -99,7 +99,7 @@ export default function WhoItsForPage() {
               Apply for a seat
             </Link>
             <Link href="/conference" className="btn-outline">
-              See the two days
+              See the full day
             </Link>
           </div>
         </Reveal>

@@ -16,7 +16,7 @@ const included = [
   "Two full days, in-person in Pasadena",
   "A cohort of ten, with real personal attention",
   "All software set up on your own laptop",
-  "Working lunches both days",
+  "Working lunch included",
   "A workflow or prototype you built",
   "A personalized next-steps plan",
 ];

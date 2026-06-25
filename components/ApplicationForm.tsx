@@ -32,7 +32,7 @@ export function ApplicationForm() {
       setStatus("success");
       setMessage(
         json?.message ||
-          `Application received. We review on a rolling basis and you'll hear from us by ${site.cohort.dates.decisionsBy}, either way.`,
+          `Application received. We review on a rolling basis and you'll hear from us in July.`,
       );
       form.reset();
       setFileName("");

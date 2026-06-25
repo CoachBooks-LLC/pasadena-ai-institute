@@ -7,6 +7,7 @@ import {
   safeFileName,
   saveLead,
   saveResume,
+  sendApplicantConfirmation,
   validateApplication,
   type ApplicationInput,
 } from "@/lib/applications";
@@ -112,9 +113,14 @@ export async function POST(req: NextRequest) {
     console.log("[interest] New application:", JSON.stringify(lead, null, 2));
   }
 
+  // Fire-and-forget — don't block the response on this
+  sendApplicantConfirmation(lead).catch((err) =>
+    console.error("[interest] applicant confirmation threw:", err),
+  );
+
   return NextResponse.json({
     ok: true,
     message:
-      "Application received. We review on a rolling basis and you'll hear from us by Monday, June 29, either way.",
+      "Application received. We review on a rolling basis and you'll hear from us in July.",
   });
 }
