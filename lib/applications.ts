@@ -1,7 +1,20 @@
 import { promises as fs } from "fs";
+import { readFileSync } from "fs";
 import os from "os";
 import path from "path";
 import { getNotificationRecipients, sendNotificationEmail } from "@/lib/notifications";
+
+// Read once at module load so every warm invocation skips the disk read
+let _signatureB64: string | null = null;
+function getSignatureB64(): string | null {
+  if (_signatureB64 !== null) return _signatureB64;
+  try {
+    _signatureB64 = readFileSync(path.join(process.cwd(), "public", "email-signature.jpg")).toString("base64");
+  } catch {
+    _signatureB64 = "";
+  }
+  return _signatureB64 || null;
+}
 
 // Capped at 4 MB to stay under Vercel's ~4.5 MB serverless request-body limit.
 // A larger multipart body is rejected with a 413 at the platform edge BEFORE this
@@ -130,16 +143,10 @@ export async function sendApplicantConfirmation(lead: Lead) {
   const from = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
   const firstName = lead.name.split(" ")[0];
 
-  // Read signature image and embed inline so it loads instantly (no external fetch)
-  let signatureTag = "";
-  try {
-    const imgPath = path.join(process.cwd(), "public", "email-signature.png");
-    const imgBuffer = await fs.readFile(imgPath);
-    const b64 = imgBuffer.toString("base64");
-    signatureTag = `<img src="data:image/png;base64,${b64}" alt="Whistle Workshop" width="480" style="display:block;max-width:100%;border-radius:4px;">`;
-  } catch {
-    // If image can't be read, skip it rather than failing the email
-  }
+  const sigB64 = getSignatureB64();
+  const signatureTag = sigB64
+    ? `<img src="data:image/jpeg;base64,${sigB64}" alt="Whistle Workshop" width="480" style="display:block;max-width:100%;border-radius:4px;">`
+    : "";
 
   const html = `<!DOCTYPE html>
 <html>
