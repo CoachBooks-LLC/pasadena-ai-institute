@@ -2,7 +2,7 @@ import { agenda } from "@/lib/content";
 
 export function AgendaTimeline() {
   return (
-    <div className="grid gap-x-16 gap-y-12 lg:grid-cols-2">
+    <div className="grid gap-y-12 lg:grid-cols-[minmax(0,52rem)]">
       {agenda.map((day) => (
         <div key={day.day}>
           <div className="flex items-baseline justify-between gap-4 border-b border-ink-200 pb-4">
