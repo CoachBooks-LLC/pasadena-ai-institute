@@ -128,17 +128,41 @@ export async function sendApplicantConfirmation(lead: Lead) {
   if (!apiKey) return false;
 
   const from = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
+  const firstName = lead.name.split(" ")[0];
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://whistleworkshop.com";
+
+  const html = `<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<body style="margin:0;padding:0;background:#ffffff;font-family:Georgia,serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;padding:48px 32px;">
+    <tr><td>
+      <h1 style="font-size:22px;font-weight:normal;color:#111;margin:0 0 32px 0;">Your application's in: Pasadena AI Workshop</h1>
+      <p style="font-size:16px;line-height:1.6;color:#222;margin:0 0 18px 0;">Hi ${firstName},</p>
+      <p style="font-size:16px;line-height:1.6;color:#222;margin:0 0 18px 0;">It's a good day. Your application to the founding cohort of the Pasadena AI Workshop just landed with us, and we're glad you're here.</p>
+      <p style="font-size:16px;line-height:1.6;color:#222;margin:0 0 18px 0;">We read every application personally and review on a rolling basis. You'll hear from us in July.</p>
+      <p style="font-size:16px;line-height:1.6;color:#222;margin:0 0 32px 0;">Should you have any questions in the meantime, please don't hesitate to contact Kevin at <a href="mailto:kexia@g.hmc.edu" style="color:#222;">kexia@g.hmc.edu</a>. We look forward to reading yours.</p>
+      <p style="font-size:16px;line-height:1.6;color:#222;margin:0 0 4px 0;">Warmly,</p>
+      <p style="font-size:16px;line-height:1.6;color:#222;margin:0 0 40px 0;">The Whistle Workshop Team</p>
+      <img src="${siteUrl}/email-signature.png" alt="Whistle Workshop — Pasadena AI Workshop by Whistle Labs LLC" width="480" style="display:block;max-width:100%;border-radius:4px;">
+    </td></tr>
+  </table>
+</body>
+</html>`;
 
   const text = [
-    `Hi ${lead.name},`,
+    `Hi ${firstName},`,
     "",
-    "Thank you for applying to the Pasadena AI Workshop founding cohort.",
+    "It's a good day. Your application to the founding cohort of the Pasadena AI Workshop just landed with us, and we're glad you're here.",
     "",
     "We read every application personally and review on a rolling basis. You'll hear from us in July.",
     "",
-    "In the meantime, feel free to reach out to us at kexia@g.hmc.edu with any questions.",
+    "Should you have any questions in the meantime, please don't hesitate to contact Kevin at kexia@g.hmc.edu. We look forward to reading yours.",
     "",
-    "— The Whistle Labs Team",
+    "Warmly,",
+    "The Whistle Workshop Team",
+    "",
+    "whistleworkshop.com",
   ].join("\n");
 
   try {
@@ -151,7 +175,8 @@ export async function sendApplicantConfirmation(lead: Lead) {
       body: JSON.stringify({
         from: `Pasadena AI Workshop <${from}>`,
         to: [lead.email],
-        subject: "We received your application — Pasadena AI Workshop",
+        subject: "Your application's in: Pasadena AI Workshop",
+        html,
         text,
       }),
     });
