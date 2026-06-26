@@ -108,10 +108,15 @@ export async function POST(req: NextRequest) {
   const persistedDurably =
     emailed || loggedToSheet || (!process.env.VERCEL && savedLead);
   if (!persistedDurably) {
+    console.error(
+      "[interest] LEAD NOT CAPTURED — no durable channel succeeded.",
+      JSON.stringify(lead),
+      { emailed, loggedToSheet, onVercel: Boolean(process.env.VERCEL) },
+    );
     return NextResponse.json(
       {
         error:
-          "We couldn't save your application just now. Please try again or email us directly.",
+          "We couldn't save your application just now. Please email us directly at hello@whistlelabs.ai.",
       },
       { status: 500 },
     );
