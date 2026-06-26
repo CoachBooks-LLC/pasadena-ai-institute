@@ -36,10 +36,10 @@ export type ApplicationInput = {
 };
 
 export const EXPERIENCE_LABELS: Record<string, string> = {
-  none: "Never really used AI",
-  dabbled: "Dabbled with ChatGPT a little",
-  regular: "Uses it sometimes for work",
-  comfortable: "Comfortable, wants to go deeper",
+  none: "Never really used it",
+  dabbled: "Dabbled with ChatGPT or Claude a little",
+  regular: "Use AI tools sometimes for work",
+  comfortable: "Comfortable, want to go deeper",
 };
 
 const ALLOWED_RESUME_EXTENSIONS = new Set([".pdf", ".doc", ".docx"]);

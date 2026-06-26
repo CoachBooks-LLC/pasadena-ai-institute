@@ -205,8 +205,8 @@ export function ApplicationForm() {
         >
           <option value="">Choose one…</option>
           <option value="none">Never really used it</option>
-          <option value="dabbled">Dabbled with ChatGPT a little</option>
-          <option value="regular">Use it sometimes for work</option>
+          <option value="dabbled">Dabbled with ChatGPT or Claude a little</option>
+          <option value="regular">Use AI tools sometimes for work</option>
           <option value="comfortable">Comfortable, want to go deeper</option>
         </select>
       </div>

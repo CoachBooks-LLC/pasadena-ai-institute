@@ -66,7 +66,7 @@ export const agenda: AgendaDay[] = [
     items: [
       {
         time: "9:00",
-        title: "What AI can actually do — live demos",
+        title: "What AI can actually do: live demos",
         detail:
           "We start by showing you, not telling you. A few live demos of AI doing things that'll change how you think about your work and business.",
       },
