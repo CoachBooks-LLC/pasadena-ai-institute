@@ -59,8 +59,6 @@ export default function HomePage() {
               <span>In-person in {site.cohort.location}</span>
               <span aria-hidden className="text-white/60">·</span>
               <span>Ten seats</span>
-              <span aria-hidden className="text-white/60">·</span>
-              <span>Apply by {site.cohort.dates.applyByShort}</span>
             </div>
             </div>
           </div>

@@ -27,7 +27,7 @@ export default function RegisterPage() {
       <PageHero
         eyebrow={`${site.cohort.label} · ${site.cohort.dates.workshop} · ${site.cohort.location}`}
         title="Claim your seat"
-        intro={`Ten seats in the founding cohort, earned by application. Tell us a little about yourself; if it's a fit, you reserve your seat to lock it in. We review on a rolling basis and close ${site.cohort.dates.applyBy}.`}
+        intro="Ten seats in the founding cohort, earned by application. Tell us a little about yourself; if it's a fit, you reserve your seat to lock it in. We review on a rolling basis."
         artwork={art.waterLilies}
       />
 

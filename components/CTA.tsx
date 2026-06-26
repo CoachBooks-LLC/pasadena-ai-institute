@@ -21,8 +21,7 @@ export function CTABand() {
           </h2>
           <p className="mt-6 max-w-md text-lg leading-relaxed text-white/90">
             The first time we&rsquo;re running this, in person in Pasadena on{" "}
-            {site.cohort.dates.workshop}. Apply for a seat by{" "}
-            {site.cohort.dates.applyByShort}.
+            {site.cohort.dates.workshop}.
           </p>
           <div className="mt-9 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
             <Link href="/register" aria-label="Apply for a seat">

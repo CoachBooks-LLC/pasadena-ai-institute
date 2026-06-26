@@ -5,7 +5,7 @@ const steps = [
     when: site.cohort.dates.applyByShort,
     title: "Apply",
     detail:
-      "Share a link to your resume or LinkedIn and answer a couple of quick questions. Applications are read on a rolling basis and close July 1, so earlier is better, since seats fill as we go.",
+      "Share a link to your resume or LinkedIn and answer a couple of quick questions. Applications are read on a rolling basis — earlier is better, since seats fill as we go.",
   },
   {
     when: site.cohort.dates.decisionsByShort,
@@ -32,9 +32,6 @@ export function ApplicationTimeline() {
           <div className="flex items-baseline gap-4">
             <span className="font-serif text-2xl font-normal tabular-nums text-ink-300">
               0{i + 1}
-            </span>
-            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-              {s.when}
             </span>
           </div>
           <div>

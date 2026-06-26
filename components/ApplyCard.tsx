@@ -50,8 +50,7 @@ export function ApplyCard() {
         </Link>
       </div>
       <p className="mt-4 text-center text-xs text-white/45">
-        Reviewed on a rolling basis · applications close{" "}
-        {site.cohort.dates.applyByShort}.
+        Reviewed on a rolling basis.
       </p>
     </div>
   );

@@ -170,7 +170,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "When and where is it?",
-    a: "The founding cohort runs July 11, 2026, in person in Pasadena, California. Applications are reviewed on a rolling basis and close Wednesday, July 1; you'll hear from us in July. The workshop is in Pasadena, and we send the exact venue to applicants once they're accepted.",
+    a: "The founding cohort runs July 11, 2026, in person in Pasadena, California. Applications are reviewed on a rolling basis; you'll hear from us in July. The workshop is in Pasadena, and we send the exact venue to applicants once they're accepted.",
   },
   {
     q: "How does the application work?",
