@@ -62,19 +62,30 @@ export type AgendaDay = { day: string; theme: string; items: AgendaItem[] };
 export const agenda: AgendaDay[] = [
   {
     day: "The Day",
-    theme: "Foundations in the morning. Build something real in the afternoon.",
+    theme: "Impress before we teach. Build before you leave.",
     items: [
       {
         time: "9:00",
-        title: "Welcome & the real state of AI",
+        title: "What AI can actually do — live demos",
         detail:
-          "A clear, hype-free picture of what AI can and can't do today, and what it means for you and your business.",
+          "We start by showing you, not telling you. A few live demos of AI doing things that'll change how you think about your work and business.",
       },
       {
-        time: "9:45",
+        time: "9:30",
+        title: "The real state of AI",
+        detail:
+          "The grounded version: a clear, hype-free picture of what AI can and can't do today, and what it actually means for you.",
+      },
+      {
+        time: "10:00",
         title: "Get set up",
         detail:
           "Everyone leaves the morning with the right accounts and tools installed and working: Claude, ChatGPT, and more.",
+      },
+      {
+        time: "10:45",
+        title: "Break",
+        detail: "",
       },
       {
         time: "11:00",
@@ -83,30 +94,30 @@ export const agenda: AgendaDay[] = [
           "Hands-on practice. Learn to get useful, reliable results for real tasks from your own work.",
       },
       {
-        time: "12:30",
+        time: "12:15",
         title: "Working lunch (included)",
         detail: "Networking with fellow Pasadena & LA professionals.",
       },
       {
-        time: "1:30",
+        time: "1:15",
+        title: "AI agents & automation",
+        detail:
+          "What agents are, how they go beyond chat, and how to automate the repetitive parts of your work or product.",
+      },
+      {
+        time: "2:15",
         title: "Track split: choose your path",
         detail:
           "Track 1 goes deep on AI for your daily work. Track 2 scopes your idea and sets up Cursor + Claude to start building.",
       },
       {
         time: "2:30",
-        title: "AI agents & custom workflows",
-        detail:
-          "What agents are, how they go beyond chat, and how to automate the repetitive parts of your work or product.",
-      },
-      {
-        time: "3:30",
         title: "Build time with experts on call",
         detail:
           "Dedicated hands-on time. Our team works the room so you're never stuck.",
       },
       {
-        time: "4:30",
+        time: "4:15",
         title: "Showcase & your path forward",
         detail:
           "Share what you built, get a personalized next-steps plan, and join the alumni community.",
