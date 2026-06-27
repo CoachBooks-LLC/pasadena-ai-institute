@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 const included = [
-  "Two full days, in-person in Pasadena",
+  "One full day, in-person in Pasadena",
   "A cohort of ten, with real personal attention",
   "All software set up on your own laptop",
   "Working lunch included",
@@ -25,7 +25,7 @@ export default function RegisterPage() {
   return (
     <>
       <PageHero
-        eyebrow={`${site.cohort.label} · ${site.cohort.dates.workshop} · ${site.cohort.location}`}
+        eyebrow={`${site.cohort.label} · ${site.cohort.season} · ${site.cohort.location}`}
         title="Claim your seat"
         intro="Ten seats in the founding cohort, earned by application. Tell us a little about yourself; if it's a fit, you reserve your seat to lock it in. We review on a rolling basis."
         artwork={art.waterLilies}
