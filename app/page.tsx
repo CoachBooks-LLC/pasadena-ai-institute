@@ -53,7 +53,7 @@ export default function HomePage() {
             </div>
             <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white [text-shadow:0_1px_4px_rgba(0,0,0,0.55)]">
               <span>
-                {site.cohort.label} · {site.cohort.dates.workshop}
+                {site.cohort.label} · {site.cohort.season}
               </span>
               <span aria-hidden className="text-white/60">·</span>
               <span>In-person in {site.cohort.location}</span>
