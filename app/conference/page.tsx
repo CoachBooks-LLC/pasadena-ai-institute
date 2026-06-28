@@ -37,7 +37,7 @@ export default function ConferencePage() {
     <>
       <PageHero
         eyebrow={`${site.cohort.label} · ${site.cohort.season}`}
-        title="Two days that change how you work"
+        title="One day that changes how you work"
         intro="The morning gets you set up and genuinely fluent with AI. The afternoon you build something real: a workflow for your work, or a prototype of your idea. Here's exactly how it goes."
         artwork={art.seuratBathers}
       />

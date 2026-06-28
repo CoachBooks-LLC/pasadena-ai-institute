@@ -2,7 +2,7 @@ import Link from "next/link";
 import { site } from "@/lib/site";
 
 const includes = [
-  "Two full days, in-person in Pasadena",
+  "One full day, in-person in Pasadena",
   "A cohort of ten, with real personal attention",
   "All software set up on your own laptop",
   "Working lunch included",
