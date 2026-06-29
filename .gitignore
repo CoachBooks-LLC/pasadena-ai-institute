@@ -37,6 +37,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
+# gmail outreach scripts (oauth secrets)
+/scripts/gmail-credentials.json
+/scripts/gmail-token.json
+/scripts/gmail-oauth-client.json
+/scripts/outreach-loaded-log.json
+
 # editor / AI tooling (kept out of the product repo)
 .cursor/
 .claude/
